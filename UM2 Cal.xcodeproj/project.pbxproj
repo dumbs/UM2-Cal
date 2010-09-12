@@ -38,6 +38,7 @@
 		BF66D8DA123D10ED00CAA11E /* Cours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cours.h; path = Models/Cours.h; sourceTree = "<group>"; };
 		BF66D8DB123D10ED00CAA11E /* Cours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cours.m; path = Models/Cours.m; sourceTree = "<group>"; };
 		BF66D8DD123D167800CAA11E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		BF66D8E1123D2DB800CAA11E /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = Classes/Constant.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +81,7 @@
 		BF66D8A7123D0D3900CAA11E /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				BF66D8E1123D2DB800CAA11E /* Constant.h */,
 				BF66D8B8123D0D3900CAA11E /* UM2_Cal_Prefix.pch */,
 				BF66D8BC123D0D3900CAA11E /* main.m */,
 			);
