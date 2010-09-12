@@ -10,9 +10,9 @@
     @header GroupeUE
     @abstract   Classe permettant de représenter en mémoire les groupes pour les UE.
 	@discussion La Classe GroupeUE est une représentation mémoire d'un groupe pour une UE
- donnée. Une UE (ou un cours) peut avoir plusieurs groupes associer. Cette classe ne s'en 
- occupe pas. Elle ne sert qu'à stocker en mémoire ce que nous renvoie le serveur au 
- format JSON.
+    donnée. Une UE (ou un cours) peut avoir plusieurs groupes associer. Cette classe ne s'en 
+    occupe pas. Elle ne sert qu'à stocker en mémoire ce que nous renvoie le serveur au 
+    format JSON.
 	@author Bertrand BRUN
 */
 

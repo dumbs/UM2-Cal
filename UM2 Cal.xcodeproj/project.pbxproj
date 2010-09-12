@@ -18,6 +18,8 @@
 		BF66D8C9123D0D3A00CAA11E /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF66D8C7123D0D3A00CAA11E /* RootViewController.xib */; };
 		BF66D8DC123D10ED00CAA11E /* Cours.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66D8DB123D10ED00CAA11E /* Cours.m */; };
 		BF66D8DE123D167900CAA11E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF66D8DD123D167800CAA11E /* icon.png */; };
+		BFAED97B123D7037002EF349 /* UniteEnseignement.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAED97A123D7037002EF349 /* UniteEnseignement.m */; };
+		BFAED97E123D757E002EF349 /* UniteEnseignements.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAED97D123D757E002EF349 /* UniteEnseignements.m */; };
 		BFF9FE6C123D300E0003DDC9 /* GroupeUE.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF9FE6B123D300E0003DDC9 /* GroupeUE.m */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,10 @@
 		BF66D8DB123D10ED00CAA11E /* Cours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cours.m; path = Models/Cours.m; sourceTree = "<group>"; };
 		BF66D8DD123D167800CAA11E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		BF66D8E1123D2DB800CAA11E /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = Classes/Constant.h; sourceTree = "<group>"; };
+		BFAED979123D7037002EF349 /* UniteEnseignement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniteEnseignement.h; path = Models/UniteEnseignement.h; sourceTree = "<group>"; };
+		BFAED97A123D7037002EF349 /* UniteEnseignement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniteEnseignement.m; path = Models/UniteEnseignement.m; sourceTree = "<group>"; };
+		BFAED97C123D757E002EF349 /* UniteEnseignements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniteEnseignements.h; path = Models/UniteEnseignements.h; sourceTree = "<group>"; };
+		BFAED97D123D757E002EF349 /* UniteEnseignements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniteEnseignements.m; path = Models/UniteEnseignements.m; sourceTree = "<group>"; };
 		BFF9FE6A123D300E0003DDC9 /* GroupeUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupeUE.h; path = Models/GroupeUE.h; sourceTree = "<group>"; };
 		BFF9FE6B123D300E0003DDC9 /* GroupeUE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupeUE.m; path = Models/GroupeUE.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +130,10 @@
 		BF66D8D8123D0FBB00CAA11E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BFAED97C123D757E002EF349 /* UniteEnseignements.h */,
+				BFAED97D123D757E002EF349 /* UniteEnseignements.m */,
+				BFAED979123D7037002EF349 /* UniteEnseignement.h */,
+				BFAED97A123D7037002EF349 /* UniteEnseignement.m */,
 				BFF9FE6A123D300E0003DDC9 /* GroupeUE.h */,
 				BFF9FE6B123D300E0003DDC9 /* GroupeUE.m */,
 				BF66D8DA123D10ED00CAA11E /* Cours.h */,
@@ -201,6 +211,8 @@
 				BF66D8C6123D0D3A00CAA11E /* RootViewController.m in Sources */,
 				BF66D8DC123D10ED00CAA11E /* Cours.m in Sources */,
 				BFF9FE6C123D300E0003DDC9 /* GroupeUE.m in Sources */,
+				BFAED97B123D7037002EF349 /* UniteEnseignement.m in Sources */,
+				BFAED97E123D757E002EF349 /* UniteEnseignements.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

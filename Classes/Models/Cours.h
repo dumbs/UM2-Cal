@@ -10,18 +10,19 @@
 /*!
     @header Cours
     @abstract Classe permettant de représenter en mémoire un cours.
-    @discussion La classe Cours représente un cours au sens de la faculté des sciences de Montpellier.
- Les serveurs de la faculté des sciences de Montpellier renvoient des cours sous forme JSON. 
- Cette classe permet de convertir le JSON en interface Objective-C.
- 
+    @discussion La classe Cours représente un cours. Le cours représente les différentes possibilités,
+    pour une UE, d'avoir lieu.
+    Les serveurs de la faculté des sciences de Montpellier renvoient des cours sous forme JSON. 
+    Cette classe permet de convertir le JSON en interface Objective-C.
     @author Bertrand BRUN
  */
 
 #import <Foundation/Foundation.h>
 
 /*!
- * @class Cours
- * @discussion La classe Cours est une classe métier permettant de représenter en mémoire les cours de la fac.
+    @class
+    @abstract Cette classe est une représentation mémoire d'un cours.
+    @discussion La classe Cours est une classe métier permettant de représenter en mémoire les cours de la fac.
  */
 @interface Cours : NSObject 
 {
