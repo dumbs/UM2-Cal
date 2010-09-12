@@ -20,6 +20,11 @@
 		BF66D8DE123D167900CAA11E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF66D8DD123D167800CAA11E /* icon.png */; };
 		BFAED97B123D7037002EF349 /* UniteEnseignement.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAED97A123D7037002EF349 /* UniteEnseignement.m */; };
 		BFAED97E123D757E002EF349 /* UniteEnseignements.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAED97D123D757E002EF349 /* UniteEnseignements.m */; };
+		BFAED98B123D7C9D002EF349 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAED982123D7C9D002EF349 /* NSObject+SBJSON.m */; };
+		BFAED98C123D7C9D002EF349 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAED984123D7C9D002EF349 /* NSString+SBJSON.m */; };
+		BFAED98D123D7C9D002EF349 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAED986123D7C9D002EF349 /* SBJsonBase.m */; };
+		BFAED98E123D7C9D002EF349 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAED988123D7C9D002EF349 /* SBJsonParser.m */; };
+		BFAED98F123D7C9D002EF349 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAED98A123D7C9D002EF349 /* SBJsonWriter.m */; };
 		BFF9FE6C123D300E0003DDC9 /* GroupeUE.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF9FE6B123D300E0003DDC9 /* GroupeUE.m */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +51,17 @@
 		BFAED97A123D7037002EF349 /* UniteEnseignement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniteEnseignement.m; path = Models/UniteEnseignement.m; sourceTree = "<group>"; };
 		BFAED97C123D757E002EF349 /* UniteEnseignements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniteEnseignements.h; path = Models/UniteEnseignements.h; sourceTree = "<group>"; };
 		BFAED97D123D757E002EF349 /* UniteEnseignements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniteEnseignements.m; path = Models/UniteEnseignements.m; sourceTree = "<group>"; };
+		BFAED980123D7C9D002EF349 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		BFAED981123D7C9D002EF349 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		BFAED982123D7C9D002EF349 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		BFAED983123D7C9D002EF349 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		BFAED984123D7C9D002EF349 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		BFAED985123D7C9D002EF349 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		BFAED986123D7C9D002EF349 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		BFAED987123D7C9D002EF349 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		BFAED988123D7C9D002EF349 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		BFAED989123D7C9D002EF349 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		BFAED98A123D7C9D002EF349 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		BFF9FE6A123D300E0003DDC9 /* GroupeUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupeUE.h; path = Models/GroupeUE.h; sourceTree = "<group>"; };
 		BFF9FE6B123D300E0003DDC9 /* GroupeUE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupeUE.m; path = Models/GroupeUE.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +94,7 @@
 		BF66D8A6123D0D3900CAA11E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BFAED97F123D7C9D002EF349 /* JSON */,
 				BF66D8D8123D0FBB00CAA11E /* Models */,
 				BF66D8BE123D0D3900CAA11E /* UM2_CalAppDelegate.h */,
 				BF66D8BF123D0D3900CAA11E /* UM2_CalAppDelegate.m */,
@@ -140,6 +157,24 @@
 				BF66D8DB123D10ED00CAA11E /* Cours.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		BFAED97F123D7C9D002EF349 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				BFAED980123D7C9D002EF349 /* JSON.h */,
+				BFAED981123D7C9D002EF349 /* NSObject+SBJSON.h */,
+				BFAED982123D7C9D002EF349 /* NSObject+SBJSON.m */,
+				BFAED983123D7C9D002EF349 /* NSString+SBJSON.h */,
+				BFAED984123D7C9D002EF349 /* NSString+SBJSON.m */,
+				BFAED985123D7C9D002EF349 /* SBJsonBase.h */,
+				BFAED986123D7C9D002EF349 /* SBJsonBase.m */,
+				BFAED987123D7C9D002EF349 /* SBJsonParser.h */,
+				BFAED988123D7C9D002EF349 /* SBJsonParser.m */,
+				BFAED989123D7C9D002EF349 /* SBJsonWriter.h */,
+				BFAED98A123D7C9D002EF349 /* SBJsonWriter.m */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +248,11 @@
 				BFF9FE6C123D300E0003DDC9 /* GroupeUE.m in Sources */,
 				BFAED97B123D7037002EF349 /* UniteEnseignement.m in Sources */,
 				BFAED97E123D757E002EF349 /* UniteEnseignements.m in Sources */,
+				BFAED98B123D7C9D002EF349 /* NSObject+SBJSON.m in Sources */,
+				BFAED98C123D7C9D002EF349 /* NSString+SBJSON.m in Sources */,
+				BFAED98D123D7C9D002EF349 /* SBJsonBase.m in Sources */,
+				BFAED98E123D7C9D002EF349 /* SBJsonParser.m in Sources */,
+				BFAED98F123D7C9D002EF349 /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
