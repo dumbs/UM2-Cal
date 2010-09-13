@@ -18,7 +18,7 @@
 #import <Foundation/Foundation.h>
 
 /*!
-    @class
+    @class      UniteEnseignements
     @abstract   La classe UniteEnseignement est un singleton.
     @discussion Pour économiser les accès à internet qui sont gourmands en énergie,
     cette classe garde une fois téléchargées toutes les UE de la faculté des sciences
@@ -32,6 +32,7 @@
 @property (nonatomic, retain) NSArray   *UE;
 
 /*! 
+    @method allUE
     @abstract Retourne un objet représentant toutes les UE de la fac.
     @result Un objet singleton représentant toutes les UE de la fac.
  */

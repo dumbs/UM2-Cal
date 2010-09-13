@@ -20,8 +20,8 @@
 #import <Foundation/Foundation.h>
 
 /*!
-    @class
-    @abstract Cette classe est une représentation mémoire d'un cours.
+    @class      Cours
+    @abstract   Cette classe est une représentation mémoire d'un cours.
     @discussion La classe Cours est une classe métier permettant de représenter en mémoire les cours de la fac.
  */
 @interface Cours : NSObject 

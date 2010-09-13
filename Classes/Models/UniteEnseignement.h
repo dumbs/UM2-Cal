@@ -19,7 +19,7 @@
 #import <Foundation/Foundation.h>
 
 /*!
-    @class
+    @class      UniteEnseignement
     @abstract   Cette classe est une représentation mémoire d'une UE.
     @discussion La classe UniteEnseignement est une classe métier permettant
     de représenter en mémoire les différentes UE proposées par la fac.

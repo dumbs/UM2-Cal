@@ -20,9 +20,9 @@
 #import <Foundation/Foundation.h>
 
 /*!
-    @class
-    @abstract    La classe GroupeUE représente un groupe pour une UE.
-	@discussion  À la faculté des sciences de Montpellier, les étudiants inscrits dans une UE sont 
+    @class      GroupeUE
+    @abstract   La classe GroupeUE représente un groupe pour une UE.
+	@discussion À la faculté des sciences de Montpellier, les étudiants inscrits dans une UE sont 
  réparties en groupe. Cette classe permet de représenter ces groupes.
 */
 @interface GroupeUE : NSObject 
