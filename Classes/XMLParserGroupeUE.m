@@ -42,16 +42,16 @@
 {
     //On initialise le groupe d'UE avec un objet par défaut qui est 
     //tout les groupes.
-	if (groupeUEs == nil) {
+	if (groupeUE == nil) {
 		GroupeUE *all = [GroupeUE new];
 		all.nom = @"Tous les groupes";
 		all.lettre = @"Tous";
 		all.id = nil;
-		groupeUEs = [[NSMutableArray alloc] initWithObjects:all, nil];
+		groupeUE = [[NSMutableArray alloc] initWithObjects:all, nil];
 		[all release];
 	}
 	else
-		[groupeUEs removeAllObjects];
+		[groupeUE removeAllObjects];
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName 
@@ -62,12 +62,12 @@
 	if ([elementName isEqualToString:@"row"]) {
 		//On crée une instance de l'objet métier et on la stocke
 		//dans une variable d'instance
-		currentGroupe = [[GroupeUE alloc] init];
+		groupeEnCours = [[GroupeUE alloc] init];
 		
 		//Lecture des attributs de l'élément
 		NSString *ident = [attributeDict valueForKey:@"id"];
 		NSRange range = [ident rangeOfString:@","];
-		currentGroupe.id = [ident substringFromIndex:range.location + 1];
+		groupeEnCours.id = [ident substringFromIndex:range.location + 1];
 		return;
 	}
 	
@@ -81,11 +81,11 @@
 {
 	switch (etape) {
 		case 1:
-			currentGroupe.nom = [string retain];
+			groupeEnCours.nom = [string retain];
 			etape += 1;
 			break;
 		case 3:
-			currentGroupe.lettre = [string retain];
+			groupeEnCours.lettre = [string retain];
 			etape += 1;
 			break;
 		default:
@@ -99,15 +99,15 @@
 		//Le traitement est fini pour cet élément.
         //On ajoute l'objet métier à la liste de tous les objets
         //lu par le parseur.
-		[groupeUEs addObject:currentGroupe];
+		[groupeUE addObject:groupeEnCours];
 		etape = 0;
-		[currentGroupe release];
+		[groupeEnCours release];
 	}
 }
 
 - (void) dealloc
 {
-	[groupeUEs release];
+	[groupeUE release];
 	[super dealloc];
 }
 
