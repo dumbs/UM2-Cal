@@ -1,0 +1,7 @@
+TODO Liste :
+	— Changer la vue de sélection des parcours. Passer d'un PickerView à une suite d'enchainement de listes.
+	— Mettre en place un système de recherche de parcours.
+	— Créer une classe avec vue pour le choix d'une UE. Et y mettre un système de recherche d'UE.
+	— Gérer le multitâche.
+	— Mettre les entêtes des sections (nom des jours de la semaine).
+	— Rajouter un indicateur de chargement.

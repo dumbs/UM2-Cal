@@ -13,6 +13,7 @@
 		BF4378FA12465B5D00708EC9 /* UECellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4378F912465B5C00708EC9 /* UECellView.m */; };
 		BF58DB25124667D600C36274 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF58DB24124667D600C36274 /* Cell.xib */; };
 		BF58DB29124668BB00C36274 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF58DB28124668BB00C36274 /* DetailView.xib */; };
+		BF58DB3712466E0000C36274 /* README in Resources */ = {isa = PBXBuildFile; fileRef = BF58DB3612466E0000C36274 /* README */; };
 		BF66D8B2123D0D3900CAA11E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF66D8B1123D0D3900CAA11E /* UIKit.framework */; };
 		BF66D8B4123D0D3900CAA11E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF66D8B3123D0D3900CAA11E /* Foundation.framework */; };
 		BF66D8B6123D0D3900CAA11E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF66D8B5123D0D3900CAA11E /* CoreGraphics.framework */; };
@@ -48,6 +49,7 @@
 		BF4378F912465B5C00708EC9 /* UECellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UECellView.m; path = Views/UECellView.m; sourceTree = "<group>"; };
 		BF58DB24124667D600C36274 /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
 		BF58DB28124668BB00C36274 /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		BF58DB3612466E0000C36274 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		BF66D8AE123D0D3900CAA11E /* UM2 Cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UM2 Cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF66D8B1123D0D3900CAA11E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BF66D8B3123D0D3900CAA11E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -150,6 +152,7 @@
 		BF66D8A7123D0D3900CAA11E /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				BF58DB3612466E0000C36274 /* README */,
 				BF66D8E1123D2DB800CAA11E /* Constant.h */,
 				BF66D8B8123D0D3900CAA11E /* UM2_Cal_Prefix.pch */,
 				BF66D8BC123D0D3900CAA11E /* main.m */,
@@ -293,6 +296,7 @@
 				BF8A2C161246593C00F588D9 /* CellDetail.xib in Resources */,
 				BF58DB25124667D600C36274 /* Cell.xib in Resources */,
 				BF58DB29124668BB00C36274 /* DetailView.xib in Resources */,
+				BF58DB3712466E0000C36274 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
