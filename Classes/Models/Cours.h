@@ -37,7 +37,9 @@
     NSString    *type;  
     NSString    *group; 
     NSDate      *end;   
-    NSDate      *start; 
+    NSDate      *start;
+    NSString    *stringStart;
+    NSString    *stringEnd;
 }
 
 /*! @abstract La description du cours. */
@@ -72,6 +74,10 @@
 
 /*! @abstract La date de debut. */
 @property (nonatomic, retain)               NSDate      *start;
+
+@property (nonatomic, retain)               NSString    *stringEnd;
+
+@property (nonatomic, retain)               NSString    *stringStart;
 
 /*! @abstract Identifiant du cours. */
 @property (nonatomic, assign)               NSInteger   id;

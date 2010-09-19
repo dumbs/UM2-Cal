@@ -23,13 +23,15 @@
 - (void)goToSetting;
 - (NSString *)getHour:(NSString *)string;
 - (NSInteger)getWeekDay:(NSString *)string;
+- (NSArray *)courseForDay:(NSUInteger)day;
+- (NSUInteger)nbOfDifferentDay;
+- (NSString *)formatDayToString:(NSInteger)day;
 
 @end
 
-
 @implementation RootViewController
 
-@synthesize dataCours, coursString, coursArray, coursFeedConnection, emploiDuTemps, progressAlert;
+@synthesize dataCours, coursString, coursArray, daySection, coursFeedConnection, emploiDuTemps, progressAlert;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -100,7 +102,10 @@
 		[self.coursArray addObject:cours];
 	}
 	[pool release];
-    
+
+    NSLog(@"%@", coursArray);
+    NSArray *array = [self.coursArray sortedArrayUsingSelector:@selector(compareWeekDay:)];
+    NSLog(@"%@", array);
 	[self.tableView reloadData];
     
     [progressAlert dismissProgressionAlert];
@@ -146,44 +151,23 @@
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return ([self nbOfDifferentDay]);
 }
-/*
- - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
- {
- switch (section) {
- case 0:
- return @"Lundi";
- break;
- case 1:
- return @"Mardi";
- break;
- case 2:
- return @"Mercredi";
- break;
- case 3:
- return @"Jeudi";
- break;
- case 4:	
- return @"Vendredi";
- break;
- case 5:
- return @"Samedi";
- break;
- default:
- return @"Dimanche";		
- break;
- }
- }
- */
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return ([self formatDayToString:[[daySection objectAtIndex:section] integerValue]]);
+}
+
 // Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [emploiDuTemps count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
+    return ([[self courseForDay:[[daySection objectAtIndex:section] integerValue]] count]);
 }
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{   
     static NSString *CellIdentifier = @"Cell";
     
     UECellView *cell = (UECellView *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -194,14 +178,15 @@
 		[cellFactoryViewController release];
 		[cell autorelease];
     }
-	
-	NSDictionary *UE = [emploiDuTemps objectAtIndex:[indexPath row]];
-	Cours *cours = [[Cours alloc] initWithDictionary:UE];//[self.coursArray objectAtIndex:[indexPath row]];
+
+    NSLog(@"daySection : %@", daySection);
+    
+    NSArray *courses = [self courseForDay:[[daySection objectAtIndex:[indexPath section]] integerValue]];
+	Cours *cours = [courses objectAtIndex:[indexPath row]];
 	cell.cours.text = cours.title;
-	cell.heureDebut.text = [self getHour:[UE objectForKey:@"start"]];
-	cell.heureFin.text = [self getHour:[UE objectForKey:@"end"]];
+	cell.heureDebut.text = [self getHour:cours.stringStart];
+	cell.heureFin.text = [self getHour:cours.stringEnd];
 	cell.type.text = cours.type;
-	[cours release];
 	return cell;
 }
 
@@ -249,8 +234,17 @@
 
 - (void)reloadUEs:(NSNotification *)note;
 {
+    //Initialisation de l'indicateur de progression.
     progressAlert = [[ProgressionAlert alloc] init];
     [progressAlert createProgressionAlertWithTitle:@"Téléchargement des cours" andMessage: @"Veuillez patienter..."];
+    
+    //Remise a zero du tableau de section
+    self.daySection = nil;
+    self.daySection = [NSMutableArray arrayWithCapacity:0];
+    
+    //Remise a zero du tableau de cours
+    self.coursArray = nil;
+    self.coursArray = [NSMutableArray arrayWithCapacity:0];
     
     //Recuperation de la date de debut...
     NSDate *now = [NSDate date];
@@ -321,6 +315,60 @@
 	int weekday = [weekdayComponents weekday];
 	[gregorian release];
 	return weekday;
+}
+
+- (NSArray *)courseForDay:(NSUInteger)day
+{
+    NSMutableArray *courses = [NSMutableArray arrayWithCapacity:0];
+    
+    for (Cours *cours in self.coursArray) {
+        if ([cours weekDay] == day) {
+            [courses addObject:cours];
+        }
+    }
+    return (courses);
+}
+
+- (NSUInteger)nbOfDifferentDay
+{
+    NSUInteger nb = 0;
+    NSInteger day = 0;
+    
+    for (Cours *cours in self.coursArray) {
+        if ([cours weekDay] != day) {
+            nb++;
+            day = [cours weekDay];
+            [daySection addObject:[NSNumber numberWithInteger:day]];
+        }
+    }
+    return (nb);
+}
+
+- (NSString *)formatDayToString:(NSInteger)day
+{
+	switch (day) {
+		case 0:
+			return @"samedi";
+			break;
+		case 1:
+			return @"dimanche";	
+			break;
+		case 2:
+			return @"lundi";
+			break;
+		case 3:
+			return @"mardi";
+			break;
+		case 4:	
+			return @"mercredi";
+			break;
+		case 5:
+			return @"jeudi";
+			break;
+		default:	
+			return @"vendredi";
+			break;
+	}
 }
 
 #pragma mark -

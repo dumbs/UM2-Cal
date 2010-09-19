@@ -3,4 +3,4 @@ TODO Liste :
 	- Mettre en place un systeme de recherche de parcours.
 	- Creer une classe avec vue pour le choix d'une UE. Et y mettre un systeme de recherche d'UE.
 	- Gerer le multitache.
-	- Mettre les entetes des sections (nom des jours de la semaine).
+	- Voir si on peut optimiser l'affichage des sections.

@@ -14,12 +14,13 @@
 - (void)formatStartDate:(NSString *)startDate;
 - (void)formatEndDate:(NSString *)endDate;
 - (NSInteger)weekDayFromString:(NSString *)string;
+- (NSComparisonResult)compareWeekDay:(Cours *)cours;
 
 @end
 
 @implementation Cours
 
-@synthesize id, allDay, editable, readOnly, model, description, location, title, type, end, start, group;
+@synthesize id, allDay, editable, readOnly, model, description, location, title, type, end, start, group, stringStart, stringEnd;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 {
@@ -33,6 +34,8 @@
 		self.description = [dictionary objectForKey:@"description"];
 		self.location = [dictionary objectForKey:@"location"];
 		self.title = [dictionary objectForKey:@"title"];
+        self.stringStart = [dictionary objectForKey:@"start"];
+        self.stringEnd = [dictionary objectForKey:@"end"];
 		self.group = @"Tous";
 		[self formatTitle];
 		[self formatStartDate:[dictionary objectForKey:@"start"]];
@@ -257,6 +260,20 @@
 			return (@"decembre");
 			break;
 	}
+}
+
+- (NSComparisonResult)compareWeekDay:(Cours *)cours
+{
+    NSInteger day1 = [self weekDay];
+    NSInteger day2 = [cours weekDay];
+    
+    if (day1 < day2) {
+        return (NSOrderedAscending);
+    } else if (day1 > day2) {
+        return (NSOrderedDescending);
+    } else {
+        return (NSOrderedSame);
+    }
 }
 
 - (void) dealloc
