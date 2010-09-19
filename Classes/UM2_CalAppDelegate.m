@@ -26,10 +26,7 @@ NSString    *   EndSettingsNotification = @"ENDSETTINGS";
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    //TODO : Juste pour les phases de test    
-    [[NSUserDefaults  standardUserDefaults] setBool:NO forKey:kUM2_INIT];
-    
+{    
     // Override point for customization after application launch.
     NSURLRequest *UEURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:kURL_PARCOURS]];
     self.UEFeedConnection = [[[NSURLConnection alloc] initWithRequest:UEURLRequest

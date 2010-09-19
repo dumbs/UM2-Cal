@@ -1,3 +1,10 @@
+//
+//  RootViewController.m
+//  UM2 Cal
+//
+//  Created by Bertrand BRUN on 12/09/10.
+//  Copyright (c) 2010 Universite Montpellier 2. All rights reserved.
+//
 
 #import "RootViewController.h"
 #import "UniteEnseignements.h"
@@ -41,9 +48,6 @@
 	[settingButton release];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadUEs:) name:EndSettingsNotification object:nil];
-	
-    NSLog(@"viewDidLoad - RootViewController");
-    // NSLog(@"kUM2_INIT : %@", ([[NSUserDefaults standardUserDefaults] boolForKey:kUM2_INIT] ? @"YES" : @"NO"));
     
 	if (![[NSUserDefaults standardUserDefaults] boolForKey:kUM2_INIT]) {
 		ParcoursViewController *detailViewController = [[ParcoursViewController alloc] initWithNibName:@"ParcoursViewController" bundle:nil];
