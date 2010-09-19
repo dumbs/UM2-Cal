@@ -92,7 +92,6 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
 	NSString *json = [coursString stringByReplacingOccurrencesOfString:@"readOnly" withString:@"\"readOnly\""];
-	NSLog(@"%@", json);
 	self.emploiDuTemps = [json JSONValue];
 	self.coursString = nil;
     
@@ -103,14 +102,10 @@
 	}
 	[pool release];
 
-    NSLog(@"%@", coursArray);
-    NSArray *array = [self.coursArray sortedArrayUsingSelector:@selector(compareWeekDay:)];
-    NSLog(@"%@", array);
 	[self.tableView reloadData];
     
     [progressAlert dismissProgressionAlert];
     [progressAlert release];
-	NSLog(@"%@", emploiDuTemps);
 	NSLog(@"Telechargement des cours fini");
 }
 
@@ -178,8 +173,6 @@
 		[cellFactoryViewController release];
 		[cell autorelease];
     }
-
-    NSLog(@"daySection : %@", daySection);
     
     NSArray *courses = [self courseForDay:[[daySection objectAtIndex:[indexPath section]] integerValue]];
 	Cours *cours = [courses objectAtIndex:[indexPath row]];
