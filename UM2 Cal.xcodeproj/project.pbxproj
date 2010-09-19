@@ -117,6 +117,7 @@
 				BFAED97F123D7C9D002EF349 /* JSON */,
 				BF66D8D8123D0FBB00CAA11E /* Models */,
 				BF120DA212462C9700217FCF /* Controllers */,
+				BF8A2C0C124656F500F588D9 /* Views */,
 				BF66D8BE123D0D3900CAA11E /* UM2_CalAppDelegate.h */,
 				BF66D8BF123D0D3900CAA11E /* UM2_CalAppDelegate.m */,
 				BF66D8C4123D0D3900CAA11E /* RootViewController.h */,
@@ -183,6 +184,13 @@
 				BF66D8DB123D10ED00CAA11E /* Cours.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		BF8A2C0C124656F500F588D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		BFAED97F123D7C9D002EF349 /* JSON */ = {

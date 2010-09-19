@@ -80,17 +80,42 @@
 
 - (IBAction)save
 {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
+    [prefs setBool:YES forKey:kUM2_INIT];
+    if (currentGroup.id)
+        [prefs setObject:currentGroup.id forKey:kGROUP_ID];
+    else
+        [prefs setObject:nil forKey:kGROUP_ID];
+    [prefs setObject:currentUE.id forKey:kUE_ID];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:EndSettingsNotification object:nil];
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)cancel
 {
-    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)reloadUE:(NSNotification *)note
 {
+    self.dataUE = [note object];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [table selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    currentCell = [table cellForRowAtIndexPath:indexPath];
+    [table reloadData];
     
+    UniteEnseignement *UE = [dataUE objectAtIndex:0];
+    currentCell.textLabel.text = UE.nom;
+    
+    NSString *ident = [[dataUE objectAtIndex:0] id];
+    int i_time = time(NULL);
+    
+    NSURLRequest *UEURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:kURL_GROUP, ident, i_time]]];
+    self.UEsGroupFeedConnection = [[[NSURLConnection alloc] initWithRequest:UEURLRequest delegate:self] autorelease];
+    [picker reloadAllComponents];
 }
 
 #pragma mark -
@@ -121,6 +146,15 @@
 	cell.textLabel.text = (UE.nom ? UE.nom : @"En Attente...");
 	cell.detailTextLabel.text = @"Groupe : Tous";
     return cell;
+}
+
+#pragma mark -
+#pragma mark Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.currentCell = [tableView cellForRowAtIndexPath:indexPath];
+    [picker reloadComponent:1];
 }
 
 #pragma mark -
@@ -166,15 +200,6 @@
 		}
 	}
 	NSLog(@"Telechargment des groupes fini");
-}
-
-#pragma mark -
-#pragma mark Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    self.currentCell = [tableView cellForRowAtIndexPath:indexPath];
-    [picker reloadComponent:1];
 }
 
 #pragma mark -
