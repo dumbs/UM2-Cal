@@ -6,11 +6,23 @@
 //  Copyright (c) 2010 Universite Montpellier 2. All rights reserved.
 //
 
+
+
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UITableViewController {
-
+@interface RootViewController : UITableViewController <UITableViewDataSource, UIApplicationDelegate>
+{
+    NSURLConnection *coursFeedConnection;
+    NSMutableString *coursString;
+    NSArray         *emploiDuTemps;
+    NSArray         *dataCours;
+    NSMutableArray  *coursArray;
 }
 
+@property (nonatomic, retain) NSArray           *emploiDuTemps;
+@property (nonatomic, retain) NSArray           *dataCours;
+@property (nonatomic, retain) NSMutableArray    *coursArray;
+@property (nonatomic, retain) NSURLConnection   *coursFeedConnection;
+@property (nonatomic, retain) NSMutableString   *coursString;
 
 @end

@@ -55,7 +55,7 @@ NSString    *   EndSettingsNotification = @"ENDSETTINGS";
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Problème de connexion"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Probleme de connexion"
 													message:[error localizedDescription] 
 												   delegate:nil cancelButtonTitle:@"OK" 
 										  otherButtonTitles:nil];
@@ -71,7 +71,7 @@ NSString    *   EndSettingsNotification = @"ENDSETTINGS";
     [[UniteEnseignements allUE] setUE:UE];
     [xmlParser release];
     [[NSNotificationCenter defaultCenter] postNotificationName:AllUEDownloadNotification object:UE];
-    NSLog(@"Téléchargement des parcours fini");
+    NSLog(@"Telechargement des parcours fini");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
