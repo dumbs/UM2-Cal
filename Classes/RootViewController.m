@@ -9,7 +9,7 @@
 #import "RootViewController.h"
 #import "UniteEnseignements.h"
 #import "UniteEnseignement.h"
-//#import "ParcoursViewController.h"
+#import "ParcoursViewController.h"
 //#import "UECellView.h"
 #import "Constant.h"
 #import "Cours.h"
@@ -32,14 +32,12 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-- (void)loadView
-{
-    self.coursArray = [[NSMutableArray alloc] initWithCapacity:0];
-}
-
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
+    
+    //Set the array which contain all course.
+    self.coursArray = [[NSMutableArray alloc] initWithCapacity:0];
     
     //Set the title to the user-visible name of the field
     self.title = @"Calendrier";
@@ -51,7 +49,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadUE:) name:EndSettingsNotification object:nil];
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kUM2_INIT]) {
-        //TODO : Ajouter l'affichage de la selection du parcours.
+        ParcoursViewController *detailViewController = [[ParcoursViewController alloc] initWithNibName:@"ParcoursViewController" bundle:nil];
+		[self presentModalViewController:detailViewController animated:YES];
+		[detailViewController release];
     } else {
         [self reloadUE:nil];
     }

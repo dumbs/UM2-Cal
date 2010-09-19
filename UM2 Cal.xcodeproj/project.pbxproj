@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF120DA612462CBF00217FCF /* ParcoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF120DA412462CBF00217FCF /* ParcoursViewController.m */; };
+		BF120DA712462CBF00217FCF /* ParcoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF120DA512462CBF00217FCF /* ParcoursViewController.xib */; };
 		BF41F0AC123EA7C900D8A3DE /* XMLParserGroupeUE.m in Sources */ = {isa = PBXBuildFile; fileRef = BF41F0AB123EA7C900D8A3DE /* XMLParserGroupeUE.m */; };
 		BF66D8B2123D0D3900CAA11E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF66D8B1123D0D3900CAA11E /* UIKit.framework */; };
 		BF66D8B4123D0D3900CAA11E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF66D8B3123D0D3900CAA11E /* Foundation.framework */; };
@@ -31,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF120DA312462CBF00217FCF /* ParcoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParcoursViewController.h; path = Controllers/ParcoursViewController.h; sourceTree = "<group>"; };
+		BF120DA412462CBF00217FCF /* ParcoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParcoursViewController.m; path = Controllers/ParcoursViewController.m; sourceTree = "<group>"; };
+		BF120DA512462CBF00217FCF /* ParcoursViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ParcoursViewController.xib; path = Classes/Controllers/ParcoursViewController.xib; sourceTree = "<group>"; };
 		BF41F0AA123EA7C900D8A3DE /* XMLParserGroupeUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XMLParserGroupeUE.h; sourceTree = "<group>"; };
 		BF41F0AB123EA7C900D8A3DE /* XMLParserGroupeUE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = XMLParserGroupeUE.m; sourceTree = "<group>"; };
 		BF66D8AE123D0D3900CAA11E /* UM2 Cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UM2 Cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF120DA212462C9700217FCF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF120DA312462CBF00217FCF /* ParcoursViewController.h */,
+				BF120DA412462CBF00217FCF /* ParcoursViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		BF66D89F123D0D3900CAA11E = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +116,7 @@
 			children = (
 				BFAED97F123D7C9D002EF349 /* JSON */,
 				BF66D8D8123D0FBB00CAA11E /* Models */,
+				BF120DA212462C9700217FCF /* Controllers */,
 				BF66D8BE123D0D3900CAA11E /* UM2_CalAppDelegate.h */,
 				BF66D8BF123D0D3900CAA11E /* UM2_CalAppDelegate.m */,
 				BF66D8C4123D0D3900CAA11E /* RootViewController.h */,
@@ -131,6 +146,7 @@
 				BF66D8B7123D0D3900CAA11E /* UM2_Cal-Info.plist */,
 				BF66D8B9123D0D3900CAA11E /* InfoPlist.strings */,
 				BF66D8C1123D0D3900CAA11E /* MainWindow.xib */,
+				BF120DA512462CBF00217FCF /* ParcoursViewController.xib */,
 				BF66D8C7123D0D3A00CAA11E /* RootViewController.xib */,
 			);
 			name = Resources;
@@ -241,6 +257,7 @@
 				BF66D8C3123D0D3900CAA11E /* MainWindow.xib in Resources */,
 				BF66D8C9123D0D3A00CAA11E /* RootViewController.xib in Resources */,
 				BF66D8DE123D167900CAA11E /* icon.png in Resources */,
+				BF120DA712462CBF00217FCF /* ParcoursViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +282,7 @@
 				BFAED98F123D7C9D002EF349 /* SBJsonWriter.m in Sources */,
 				BFAED992123D80E4002EF349 /* XMLParserUE.m in Sources */,
 				BF41F0AC123EA7C900D8A3DE /* XMLParserGroupeUE.m in Sources */,
+				BF120DA612462CBF00217FCF /* ParcoursViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
