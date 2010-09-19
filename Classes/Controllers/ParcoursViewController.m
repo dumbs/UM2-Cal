@@ -86,7 +86,7 @@
     if (currentGroup.id)
         [prefs setObject:currentGroup.id forKey:kGROUP_ID];
     else
-        [prefs setObject:nil forKey:kGROUP_ID];
+        [prefs setObject:@"" forKey:kGROUP_ID];
     [prefs setObject:currentUE.id forKey:kUE_ID];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EndSettingsNotification object:nil];

@@ -62,7 +62,7 @@
 							<object class="IBUILabel" id="89224469">
 								<reference key="NSNextResponder" ref="887373928"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{7, 105}, {214, 11}}</string>
+								<string key="NSFrame">{{7, 90}, {214, 11}}</string>
 								<reference key="NSSuperview" ref="887373928"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="148433065"/>
@@ -88,7 +88,7 @@
 							<object class="IBUILabel" id="148433065">
 								<reference key="NSNextResponder" ref="887373928"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{7, 116}, {214, 11}}</string>
+								<string key="NSFrame">{{7, 101}, {214, 11}}</string>
 								<reference key="NSSuperview" ref="887373928"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -110,7 +110,7 @@
 							<object class="IBUILabel" id="470418378">
 								<reference key="NSNextResponder" ref="887373928"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{7, 73}, {295, 16}}</string>
+								<string key="NSFrame">{{7, 58}, {295, 16}}</string>
 								<reference key="NSSuperview" ref="887373928"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="389301466"/>
@@ -136,7 +136,7 @@
 							<object class="IBUILabel" id="389301466">
 								<reference key="NSNextResponder" ref="887373928"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{7, 85}, {295, 16}}</string>
+								<string key="NSFrame">{{7, 70}, {295, 16}}</string>
 								<reference key="NSSuperview" ref="887373928"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="89224469"/>
@@ -223,6 +223,14 @@
 					</object>
 					<int key="connectionID">20</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">view</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="332928667"/>
+					</object>
+					<int key="connectionID">21</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -249,9 +257,9 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="811329957"/>
 							<reference ref="89224469"/>
+							<reference ref="148433065"/>
 							<reference ref="470418378"/>
 							<reference ref="389301466"/>
-							<reference ref="148433065"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Table View Cell</string>
@@ -284,6 +292,7 @@
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
+				<string key="-1.CustomClassName">UIViewController</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="3.CustomClassName">DetailView</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -303,7 +312,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">20</int>
+			<int key="maxID">21</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

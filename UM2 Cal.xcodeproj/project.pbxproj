@@ -11,7 +11,8 @@
 		BF120DA712462CBF00217FCF /* ParcoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF120DA512462CBF00217FCF /* ParcoursViewController.xib */; };
 		BF41F0AC123EA7C900D8A3DE /* XMLParserGroupeUE.m in Sources */ = {isa = PBXBuildFile; fileRef = BF41F0AB123EA7C900D8A3DE /* XMLParserGroupeUE.m */; };
 		BF4378FA12465B5D00708EC9 /* UECellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4378F912465B5C00708EC9 /* UECellView.m */; };
-		BF4378FC12465B7600708EC9 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF4378FB12465B7600708EC9 /* Cell.xib */; };
+		BF58DB25124667D600C36274 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF58DB24124667D600C36274 /* Cell.xib */; };
+		BF58DB29124668BB00C36274 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF58DB28124668BB00C36274 /* DetailView.xib */; };
 		BF66D8B2123D0D3900CAA11E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF66D8B1123D0D3900CAA11E /* UIKit.framework */; };
 		BF66D8B4123D0D3900CAA11E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF66D8B3123D0D3900CAA11E /* Foundation.framework */; };
 		BF66D8B6123D0D3900CAA11E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF66D8B5123D0D3900CAA11E /* CoreGraphics.framework */; };
@@ -24,7 +25,6 @@
 		BF66D8DC123D10ED00CAA11E /* Cours.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66D8DB123D10ED00CAA11E /* Cours.m */; };
 		BF66D8DE123D167900CAA11E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF66D8DD123D167800CAA11E /* icon.png */; };
 		BF8A2C101246579C00F588D9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A2C0E1246579C00F588D9 /* DetailViewController.m */; };
-		BF8A2C111246579C00F588D9 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8A2C0F1246579C00F588D9 /* DetailViewController.xib */; };
 		BF8A2C14124658F600F588D9 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A2C13124658F600F588D9 /* DetailView.m */; };
 		BF8A2C161246593C00F588D9 /* CellDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8A2C151246593C00F588D9 /* CellDetail.xib */; };
 		BFAED97B123D7037002EF349 /* UniteEnseignement.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAED97A123D7037002EF349 /* UniteEnseignement.m */; };
@@ -46,7 +46,8 @@
 		BF41F0AB123EA7C900D8A3DE /* XMLParserGroupeUE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = XMLParserGroupeUE.m; sourceTree = "<group>"; };
 		BF4378F812465B5C00708EC9 /* UECellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UECellView.h; path = Views/UECellView.h; sourceTree = "<group>"; };
 		BF4378F912465B5C00708EC9 /* UECellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UECellView.m; path = Views/UECellView.m; sourceTree = "<group>"; };
-		BF4378FB12465B7600708EC9 /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Cell.xib; path = Classes/Views/Cell.xib; sourceTree = "<group>"; };
+		BF58DB24124667D600C36274 /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		BF58DB28124668BB00C36274 /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		BF66D8AE123D0D3900CAA11E /* UM2 Cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UM2 Cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF66D8B1123D0D3900CAA11E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BF66D8B3123D0D3900CAA11E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,7 +68,6 @@
 		BF66D8E1123D2DB800CAA11E /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = Classes/Constant.h; sourceTree = "<group>"; };
 		BF8A2C0D1246579B00F588D9 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Controllers/DetailViewController.h; sourceTree = "<group>"; };
 		BF8A2C0E1246579C00F588D9 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Controllers/DetailViewController.m; sourceTree = "<group>"; };
-		BF8A2C0F1246579C00F588D9 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailViewController.xib; path = Classes/Controllers/DetailViewController.xib; sourceTree = "<group>"; };
 		BF8A2C12124658F600F588D9 /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailView.h; path = Views/DetailView.h; sourceTree = "<group>"; };
 		BF8A2C13124658F600F588D9 /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailView.m; path = Views/DetailView.m; sourceTree = "<group>"; };
 		BF8A2C151246593C00F588D9 /* CellDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CellDetail.xib; path = Classes/Views/CellDetail.xib; sourceTree = "<group>"; };
@@ -165,9 +165,9 @@
 				BF66D8B9123D0D3900CAA11E /* InfoPlist.strings */,
 				BF66D8C1123D0D3900CAA11E /* MainWindow.xib */,
 				BF120DA512462CBF00217FCF /* ParcoursViewController.xib */,
-				BF4378FB12465B7600708EC9 /* Cell.xib */,
+				BF58DB28124668BB00C36274 /* DetailView.xib */,
+				BF58DB24124667D600C36274 /* Cell.xib */,
 				BF8A2C151246593C00F588D9 /* CellDetail.xib */,
-				BF8A2C0F1246579C00F588D9 /* DetailViewController.xib */,
 				BF66D8C7123D0D3A00CAA11E /* RootViewController.xib */,
 			);
 			name = Resources;
@@ -290,9 +290,9 @@
 				BF66D8C9123D0D3A00CAA11E /* RootViewController.xib in Resources */,
 				BF66D8DE123D167900CAA11E /* icon.png in Resources */,
 				BF120DA712462CBF00217FCF /* ParcoursViewController.xib in Resources */,
-				BF8A2C111246579C00F588D9 /* DetailViewController.xib in Resources */,
 				BF8A2C161246593C00F588D9 /* CellDetail.xib in Resources */,
-				BF4378FC12465B7600708EC9 /* Cell.xib in Resources */,
+				BF58DB25124667D600C36274 /* Cell.xib in Resources */,
+				BF58DB29124668BB00C36274 /* DetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UITableViewController <UITableViewDataSource, UIApplicationDelegate>
+@interface RootViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIApplicationDelegate>
 {
     NSURLConnection *coursFeedConnection;
     NSMutableString *coursString;
