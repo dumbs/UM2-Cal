@@ -89,7 +89,7 @@
 		
 		cell.titre.text = cours.title;
 		cell.salle.text = cours.location;
-		cell.group.text = cours.group;
+		cell.groupe.text = cours.group;
 		
 		NSCalendar *gregorian = [[NSCalendar alloc]
 								 initWithCalendarIdentifier:NSGregorianCalendar];
@@ -111,7 +111,7 @@
 		NSInteger day = hourStart.day;
 		NSInteger weekday = hourStart.weekday;
         
-		cell.heure.text = [NSString stringWithFormat:@"de %.2d:%.2d à %.2d:%.2d", hourS, minuteS, hourE, minuteE];
+		cell.horaire.text = [NSString stringWithFormat:@"de %.2d:%.2d à %.2d:%.2d", hourS, minuteS, hourE, minuteE];
 		cell.date.text = [NSString stringWithFormat:@"%@ %d %@ %d", [cours formatDayToString:weekday], day, [cours formatMonthToString:month], year];
 		
 		[gregorian release];

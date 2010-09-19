@@ -11,7 +11,7 @@
 
 @implementation DetailView
 
-@synthesize date, salle, titre, heure, group;
+@synthesize date, salle, titre, horaire, groupe;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {

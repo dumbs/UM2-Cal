@@ -37,6 +37,7 @@
 								<string key="NSFrame">{{7, 5}, {295, 45}}</string>
 								<reference key="NSSuperview" ref="887373928"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="470418378"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -64,6 +65,7 @@
 								<string key="NSFrame">{{7, 105}, {214, 11}}</string>
 								<reference key="NSSuperview" ref="887373928"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="148433065"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -89,6 +91,7 @@
 								<string key="NSFrame">{{7, 116}, {214, 11}}</string>
 								<reference key="NSSuperview" ref="887373928"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -110,6 +113,7 @@
 								<string key="NSFrame">{{7, 73}, {295, 16}}</string>
 								<reference key="NSSuperview" ref="887373928"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="389301466"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -135,6 +139,7 @@
 								<string key="NSFrame">{{7, 85}, {295, 16}}</string>
 								<reference key="NSSuperview" ref="887373928"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="89224469"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -151,6 +156,7 @@
 						<string key="NSFrameSize">{335, 147}</string>
 						<reference key="NSSuperview" ref="332928667"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="811329957"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -177,22 +183,6 @@
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array key="connectionRecords">
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">title</string>
-						<reference key="source" ref="332928667"/>
-						<reference key="destination" ref="811329957"/>
-					</object>
-					<int key="connectionID">9</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
-						<string key="label">tre</string>
-						<reference key="source" ref="332928667"/>
-						<reference key="destination" ref="148433065"/>
-					</object>
-					<int key="connectionID">15</int>
-				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">titre</string>

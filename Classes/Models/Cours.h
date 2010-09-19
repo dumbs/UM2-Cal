@@ -94,4 +94,8 @@
  */
 - (NSInteger)weekDay;
 
+- (NSString *)formatDayToString:(NSInteger)day;
+
+- (NSString *)formatMonthToString:(NSInteger)month;
+
 @end

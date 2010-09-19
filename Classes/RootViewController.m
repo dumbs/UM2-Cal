@@ -10,11 +10,11 @@
 #import "UniteEnseignements.h"
 #import "UniteEnseignement.h"
 #import "ParcoursViewController.h"
-//#import "UECellView.h"
+#import "UECellView.h"
 #import "Constant.h"
-#import "Cours.h"
 #import "JSON.h"
-//#import "DetailViewController.h"
+#import "DetailViewController.h"
+#import "Cours.h"
 
 @interface RootViewController ()
 
@@ -133,30 +133,44 @@
 }
  */
 
-// Customize the number of sections in the table view.
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#pragma mark -
+#pragma mark Table view data source
 
-    return 1;
+// Customize the number of sections in the table view.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
+{
+    return ([emploiDuTemps count]);
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
     return 0;
 }
 
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UECellView *cell = (UECellView *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		UIViewController *cellFactoryViewController = [[UIViewController alloc] initWithNibName:@"Cell" bundle:nil];
+		cell = (UECellView *)cellFactoryViewController.view;
+		[cell retain];
+		[cellFactoryViewController release];
+		[cell autorelease];
     }
-
-    // Configure the cell.
-    return cell;
+	
+	NSDictionary *UE = [emploiDuTemps objectAtIndex:[indexPath row]];
+	Cours *cours = [[Cours alloc] initWithDictionary:UE];//[self.coursArray objectAtIndex:[indexPath row]];
+	cell.cours.text = cours.title;
+	cell.heureDebut.text = [self getHour:[UE objectForKey:@"start"]];
+	cell.heureFin.text = [self getHour:[UE objectForKey:@"end"]];
+	cell.type.text = cours.type;
+	[cours release];
+	return cell;
 }
 
 
@@ -196,15 +210,22 @@
 }
 */
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-    /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-    // ...
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-	*/
+#pragma mark -
+#pragma mark Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+	
+	DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailView" bundle:nil];
+	// ...
+	// Pass the selected object to the new view controller.
+	NSDictionary *UE = [emploiDuTemps objectAtIndex:[indexPath row]];
+	Cours *cours = [[Cours alloc] initWithDictionary:UE];
+	detailViewController.cours = cours;
+	[cours release];
+	[self.navigationController pushViewController:detailViewController animated:YES];
+	[detailViewController release];
+	
 }
 
 #pragma mark -
@@ -212,22 +233,79 @@
 
 - (void)reloadUE:(NSNotification *)note
 {
+    //Recuperation de la date de debut...
+    NSDate *now = [NSDate date];
+    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    [outputFormatter setDateFormat:@"YYYY-MM-dd"];
+    NSString *begin = [outputFormatter stringFromDate:now];
     
+    //... et de fin de semaines
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [gregorian components:NSUndefinedDateComponent fromDate:now];
+    [comps setDay:comps.day + 7];
+    [outputFormatter setDateFormat:@"YYYY-MM-dd"];
+    NSString *end = [outputFormatter stringFromDate:[gregorian dateFromComponents:comps]];
+    
+    [gregorian release];
+    [outputFormatter release];
+    
+    //Recuperation du parcours
+	NSString *id_parcours = [[NSUserDefaults standardUserDefaults] objectForKey:kUE_ID];
+    
+    //Recuperation du groupe
+	NSString *id_groupe = [[NSUserDefaults standardUserDefaults] objectForKey:kGROUP_ID];
+    
+    //Envoi de la requete
+	NSURLRequest *UEsURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:kURL_COURS, begin, end, id_parcours, id_groupe]]];
+    
+    NSLog(@"%@",[NSString stringWithFormat:kURL_COURS, begin, end, id_parcours, id_groupe]);
+    
+	self.coursFeedConnection = [[[NSURLConnection alloc] initWithRequest:UEsURLRequest delegate:self] autorelease];
 }
 
 - (void)goToSetting
 {
-    
+    ParcoursViewController *detailViewController = [[ParcoursViewController alloc] initWithNibName:@"ParcoursViewController" bundle:nil];
+	[self presentModalViewController:detailViewController animated:YES];
+	[detailViewController release];
 }
 
 - (NSString *)getHour:(NSString *)string
 {
-    return (nil);
+    NSRange rangeOfT = [string rangeOfString:@"T"];
+	NSRange range = rangeOfT;
+	range.location += 1;
+	range.length = 5;
+	return ([string substringWithRange:range]);
 }
 
 - (NSInteger)getWeekDay:(NSString *)string
 {
-    return (0);
+    NSRange range = [string rangeOfString:@"T"];
+	NSString *dateS = [string substringToIndex:range.location];
+	
+	NSInteger year = [[dateS substringToIndex:4] intValue];
+	range.location = 5;
+	range.length = 2;
+	NSInteger month = [[dateS substringWithRange:range] intValue];
+	range.location = 8;
+	range.length = 2;
+	NSInteger day = [[dateS substringWithRange:range] intValue];
+	
+	NSDateComponents *comps = [[NSDateComponents alloc] init];
+	[comps setDay:day];
+	[comps setMonth:month];
+	[comps setYear:year];
+	NSCalendar *gregorian = [[NSCalendar alloc]
+							 initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDate *date = [gregorian dateFromComponents:comps];
+	[comps release];
+	NSDateComponents *weekdayComponents =
+    [gregorian components:NSWeekdayCalendarUnit fromDate:date];
+	int weekday = [weekdayComponents weekday];
+	[gregorian release];
+	return weekday;
+
 }
 
 #pragma mark -

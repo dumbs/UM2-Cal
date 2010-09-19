@@ -11,7 +11,7 @@
 
 @implementation UECellView
 
-@synthesize heureDebut, heureFin, title, type;
+@synthesize heureDebut, heureFin, cours, type;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {

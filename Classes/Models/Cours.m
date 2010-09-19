@@ -13,26 +13,13 @@
 - (void)formatTitle;
 - (void)formatStartDate:(NSString *)startDate;
 - (void)formatEndDate:(NSString *)endDate;
-- (NSString *)formatDayToString:(NSInteger)day;
-- (NSString *)formatMonthToString:(NSInteger)month;
 - (NSInteger)weekDayFromString:(NSString *)string;
 
 @end
 
 @implementation Cours
 
-@synthesize id, 
-    allDay, 
-    editable, 
-    readOnly,
-    model, 
-    description,
-    location, 
-    title, 
-    type, 
-    end, 
-    start, 
-    group;
+@synthesize id, allDay, editable, readOnly, model, description, location, title, type, end, start, group;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 {
