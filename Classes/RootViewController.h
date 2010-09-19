@@ -6,17 +6,18 @@
 //  Copyright (c) 2010 Universite Montpellier 2. All rights reserved.
 //
 
-
-
 #import <UIKit/UIKit.h>
+
+@class ProgressionAlert;
 
 @interface RootViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIApplicationDelegate>
 {
-    NSURLConnection *coursFeedConnection;
-    NSMutableString *coursString;
-    NSArray         *emploiDuTemps;
-    NSArray         *dataCours;
-    NSMutableArray  *coursArray;
+    NSURLConnection     *coursFeedConnection;
+    NSMutableString     *coursString;
+    NSArray             *emploiDuTemps;
+    NSArray             *dataCours;
+    NSMutableArray      *coursArray;
+    ProgressionAlert    *progressAlert;
 }
 
 @property (nonatomic, retain) NSArray           *emploiDuTemps;
@@ -24,5 +25,7 @@
 @property (nonatomic, retain) NSMutableArray    *coursArray;
 @property (nonatomic, retain) NSURLConnection   *coursFeedConnection;
 @property (nonatomic, retain) NSMutableString   *coursString;
+@property (nonatomic, retain) ProgressionAlert  *progressAlert;
+
 
 @end

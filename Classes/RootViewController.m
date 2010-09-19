@@ -15,6 +15,7 @@
 #import "Cours.h"
 #import "JSON.h"
 #import "DetailViewController.h"
+#import "ProgressionAlert.h"
 
 @interface RootViewController()
 
@@ -28,7 +29,7 @@
 
 @implementation RootViewController
 
-@synthesize dataCours, coursString, coursArray, coursFeedConnection, emploiDuTemps;
+@synthesize dataCours, coursString, coursArray, coursFeedConnection, emploiDuTemps, progressAlert;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -56,9 +57,6 @@
 	} else {	
 		[self reloadUEs:nil];
 	}
-    
-    
-    
 }
 
 #pragma mark -
@@ -104,6 +102,9 @@
 	[pool release];
     
 	[self.tableView reloadData];
+    
+    [progressAlert dismissProgressionAlert];
+    [progressAlert release];
 	NSLog(@"%@", emploiDuTemps);
 	NSLog(@"Telechargement des cours fini");
 }
@@ -248,6 +249,9 @@
 
 - (void)reloadUEs:(NSNotification *)note;
 {
+    progressAlert = [[ProgressionAlert alloc] init];
+    [progressAlert createProgressionAlertWithTitle:@"Téléchargement des cours" andMessage: @"Veuillez patienter..."];
+    
     //Recuperation de la date de debut...
     NSDate *now = [NSDate date];
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
@@ -271,10 +275,7 @@
 	NSString *id_groupe = [[NSUserDefaults standardUserDefaults] objectForKey:kGROUP_ID];
     
     //Envoi de la requete
-	NSURLRequest *UEsURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:kURL_COURS, begin, end, id_parcours, id_groupe]]];
-    
-    NSLog(@"%@",[NSString stringWithFormat:kURL_COURS, begin, end, id_parcours, id_groupe]);
-    
+	NSURLRequest *UEsURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:kURL_COURS, begin, end, id_parcours, id_groupe]]];    
 	self.coursFeedConnection = [[[NSURLConnection alloc] initWithRequest:UEsURLRequest delegate:self] autorelease];
 }
 
