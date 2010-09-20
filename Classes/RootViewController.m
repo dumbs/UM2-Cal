@@ -26,6 +26,7 @@
 - (NSArray *)courseForDay:(NSUInteger)day;
 - (NSUInteger)nbOfDifferentDay;
 - (NSString *)formatDayToString:(NSInteger)day;
+- (void)refresh;
 
 @end
 
@@ -39,9 +40,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //Set the array which contain all course
-    self.coursArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
 	//Set the title to the user-visible name of the field
 	self.title = @"Calendrier";
 	
@@ -49,6 +47,11 @@
 	UIBarButtonItem *settingButton = [[UIBarButtonItem alloc] initWithTitle:@"Parcours" style:UIBarButtonItemStyleBordered target:self action:@selector(goToSetting)];
 	self.navigationItem.rightBarButtonItem = settingButton;
 	[settingButton release];
+    
+    //Configure the refresh button
+	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
+	self.navigationItem.leftBarButtonItem = refreshButton;
+	[refreshButton release];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadUEs:) name:EndSettingsNotification object:nil];
     
@@ -81,7 +84,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Probleme de connexion"
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Problème de connexion"
 													message:[error localizedDescription] 
 												   delegate:nil cancelButtonTitle:@"OK" 
 										  otherButtonTitles:nil];
@@ -95,13 +98,15 @@
 	self.emploiDuTemps = [json JSONValue];
 	self.coursString = nil;
     
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:0];
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	for (NSDictionary *UE in emploiDuTemps) {
 		Cours *cours = [[[Cours alloc] initWithDictionary:UE] autorelease];
-		[self.coursArray addObject:cours];
+		[array addObject:cours];
 	}
 	[pool release];
-
+    self.coursArray = [NSArray arrayWithArray:array];
+    
 	[self.tableView reloadData];
     
     [progressAlert dismissProgressionAlert];
@@ -248,7 +253,7 @@
     //... et de fin de semaines
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comps = [gregorian components:NSUndefinedDateComponent fromDate:now];
-    [comps setDay:comps.day + 7];
+    [comps setDay:comps.day + 6];
     [outputFormatter setDateFormat:@"YYYY-MM-dd"];
     NSString *end = [outputFormatter stringFromDate:[gregorian dateFromComponents:comps]];
     
@@ -271,6 +276,47 @@
 	ParcoursViewController *detailViewController = [[ParcoursViewController alloc] initWithNibName:@"ParcoursViewController" bundle:nil];
 	[self presentModalViewController:detailViewController animated:YES];
 	[detailViewController release];
+}
+
+- (void)refresh
+{
+    //Initialisation de l'indicateur de progression.
+    progressAlert = [[ProgressionAlert alloc] init];
+    [progressAlert createProgressionAlertWithTitle:@"Mise à jour des cours" andMessage: @"Veuillez patienter..."];
+    
+    //Remise a zero du tableau de section
+    self.daySection = nil;
+    self.daySection = [NSMutableArray arrayWithCapacity:0];
+    
+    //Remise a zero du tableau de cours
+    self.coursArray = nil;
+    self.coursArray = [NSMutableArray arrayWithCapacity:0];
+    
+    //Recuperation de la date de debut...
+    NSDate *now = [NSDate date];
+    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    [outputFormatter setDateFormat:@"YYYY-MM-dd"];
+    NSString *begin = [outputFormatter stringFromDate:now];
+    
+    //... et de fin de semaines
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [gregorian components:NSUndefinedDateComponent fromDate:now];
+    [comps setDay:comps.day + 6];
+    [outputFormatter setDateFormat:@"YYYY-MM-dd"];
+    NSString *end = [outputFormatter stringFromDate:[gregorian dateFromComponents:comps]];
+    
+    [gregorian release];
+    [outputFormatter release];
+    
+    //Recuperation du parcours
+	NSString *id_parcours = [[NSUserDefaults standardUserDefaults] objectForKey:kUE_ID];
+    
+    //Recuperation du groupe
+	NSString *id_groupe = [[NSUserDefaults standardUserDefaults] objectForKey:kGROUP_ID];
+    
+    //Envoi de la requete
+	NSURLRequest *UEsURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:kURL_COURS, begin, end, id_parcours, id_groupe]]];    
+	self.coursFeedConnection = [[[NSURLConnection alloc] initWithRequest:UEsURLRequest delegate:self] autorelease];
 }
 
 - (NSString *)getHour:(NSString *)string
@@ -313,9 +359,9 @@
 - (NSArray *)courseForDay:(NSUInteger)day
 {
     NSMutableArray *courses = [NSMutableArray arrayWithCapacity:0];
-    
-    for (Cours *cours in self.coursArray) {
-        if ([cours weekDay] == day) {
+
+    for (Cours *cours in coursArray) {
+        if (cours && ([cours weekDay] == day)) {
             [courses addObject:cours];
         }
     }
@@ -372,10 +418,9 @@
 	DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailView" bundle:nil];
 	// ...
 	// Pass the selected object to the new view controller.
-	NSDictionary *UE = [emploiDuTemps objectAtIndex:[indexPath row]];
-	Cours *cours = [[Cours alloc] initWithDictionary:UE];
+    NSArray *courses = [self courseForDay:[[self.daySection objectAtIndex:[indexPath section]] integerValue]];
+	Cours *cours = [courses objectAtIndex:[indexPath row]];
 	detailViewController.cours = cours;
-	[cours release];
 	[self.navigationController pushViewController:detailViewController animated:YES];
 	[detailViewController release];
 	

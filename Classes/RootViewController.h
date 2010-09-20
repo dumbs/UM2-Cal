@@ -16,15 +16,15 @@
     NSMutableString     *coursString;
     NSArray             *emploiDuTemps;
     NSArray             *dataCours;
-    NSMutableArray      *coursArray;
+    NSArray             *coursArray;
     ProgressionAlert    *progressAlert;
-    
     NSMutableArray      *daySection;
+    
 }
 
 @property (nonatomic, retain) NSArray           *emploiDuTemps;
 @property (nonatomic, retain) NSArray           *dataCours;
-@property (nonatomic, retain) NSMutableArray    *coursArray;
+@property (nonatomic, retain) NSArray           *coursArray;
 @property (nonatomic, retain) NSMutableArray    *daySection;
 @property (nonatomic, retain) NSURLConnection   *coursFeedConnection;
 @property (nonatomic, retain) NSMutableString   *coursString;

@@ -1,6 +1,7 @@
 TODO Liste :
-    - Changer la vue de selection des parcours. Passer d'un PickerView a une suite d'enchainement de listes.
-	- Mettre en place un systeme de recherche de parcours.
-	- Creer une classe avec vue pour le choix d'une UE. Et y mettre un systeme de recherche d'UE.
-	- Gerer le multitache.
+	- Changer la vue de sélection des parcours. Passer d'un PickerView à une suite d'enchainement de listes.
+	- Mettre en place un système de recherche de parcours.
+	- Créer une classe avec vue pour le choix d'une UE. Et y mettre un système de recherche d'UE.
+	- Gérer le multitâche.
 	- Voir si on peut optimiser l'affichage des sections.
+	- Ajouter un système d'exception pour gérer les crashs du site de la fac.
