@@ -185,7 +185,7 @@
 	cell.heureDebut.text = [self getHour:cours.stringStart];
 	cell.heureFin.text = [self getHour:cours.stringEnd];
 	cell.type.text = cours.type;
-	return cell;
+	return (cell);
 }
 
 /*
@@ -267,7 +267,10 @@
 	NSString *id_groupe = [[NSUserDefaults standardUserDefaults] objectForKey:kGROUP_ID];
     
     //Envoi de la requete
-	NSURLRequest *UEsURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:kURL_COURS, begin, end, id_parcours, id_groupe]]];    
+	NSURLRequest *UEsURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:kURL_COURS, begin, end, id_parcours, id_groupe]]];
+    
+    NSLog(@"%@", [NSURL URLWithString:[NSString stringWithFormat:kURL_COURS, begin, end, id_parcours, id_groupe]]);
+    
 	self.coursFeedConnection = [[[NSURLConnection alloc] initWithRequest:UEsURLRequest delegate:self] autorelease];
 }
 

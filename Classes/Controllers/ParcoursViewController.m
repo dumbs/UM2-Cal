@@ -44,29 +44,6 @@
 {
     [super viewDidLoad];
     
-    NSString *ident = [[dataUE objectAtIndex:0] id];
-    NSInteger row = 0;
-    
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    if ([prefs boolForKey:kUM2_INIT]) {
-        NSString *UE_ID = [prefs stringForKey:kUE_ID];
-        for (UniteEnseignement *UE in dataUE) {
-            ident = UE.id;
-            if ([ident isEqualToString:UE_ID]) {
-                [picker selectRow:row inComponent:0 animated:YES];
-                break;
-            }
-            row++;
-        }
-    }
-    [table selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
-    self.currentCell = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    self.currentUE = [dataUE objectAtIndex:row];
-    currentGroup = [dataGroup objectAtIndex:0];
-    self.currentCell.textLabel.text = [[dataUE objectAtIndex:row] nom];
-    int i_time = time(NULL);
-    NSURLRequest *UEURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:kURL_GROUP, ident, i_time]]];
-    self.UEsGroupFeedConnection = [[[NSURLConnection alloc] initWithRequest:UEURLRequest delegate:self] autorelease];
 }
 
 

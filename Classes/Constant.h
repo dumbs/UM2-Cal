@@ -54,7 +54,7 @@ extern NSString *   EndSettingsNotification;
  @abstract      URL de récupération des cours.
  @discussion    Lorsque l'on veut récupérer les cours pour un parcours donné, il faut envoyer cette define.
  */
-#define kURL_COURS      @"http://edt.ufr.univ-montp2.fr/4DAction/AJAX_Occ?start=%@&end=%@&sel=Etp%%3A+%@"
+#define kURL_COURS      @"http://edt.ufr.univ-montp2.fr/4DAction/AJAX_Occ?start=%@&end=%@&sel=Etp%%3A+%@%%2C%@"
 
 #define kUM2_INIT       @"UM2_INIT" //BOOL
 #define kUE_ID          @"UE_ID"    //String
