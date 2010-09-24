@@ -37,21 +37,48 @@
 						<string key="NSFrame">{{0, 44}, {320, 201}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="925823265"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
+							<int key="NSColorSpace">10</int>
+							<object class="NSImage" key="NSImage">
+								<int key="NSImageFlags">549453824</int>
+								<string key="NSSize">{84, 1}</string>
+								<array class="NSMutableArray" key="NSReps">
+									<array>
+										<integer value="0"/>
+										<object class="NSBitmapImageRep">
+											<object class="NSData" key="NSTIFFRepresentation">
+												<bytes key="NS.bytes">TU0AKgAAAVjFzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/
+y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/
+xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/
+xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/
+xczU/8XM1P/FzNL/y9LY/8vS2P/FzNT/xczU/8XM1P/FzNT/xczS/8vS2P/L0tj/xczU/8XM1P/FzNT/
+xczU/8XM0v/L0tj/y9LY/8XM1P/FzNT/xczU/8XM1P/FzNL/y9LY/8vS2P8ADQEAAAMAAAABAFQAAAEB
+AAMAAAABAAEAAAECAAMAAAAEAAAB+gEDAAMAAAABAAEAAAEGAAMAAAABAAIAAAERAAQAAAABAAAACAES
+AAMAAAABAAEAAAEVAAMAAAABAAQAAAEWAAMAAAABAAEAAAEXAAQAAAABAAABUAEcAAMAAAABAAEAAAFS
+AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
+											</object>
+										</object>
+									</array>
+								</array>
+								<object class="NSColor" key="NSColor">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MCAwAA</bytes>
+								</object>
+							</object>
+							<string key="IBUIColorCocoaTouchKeyPath">groupTableViewBackgroundColor</string>
 						</object>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIAlwaysBounceVertical">YES</bool>
 						<bool key="IBUIShowsVerticalScrollIndicator">NO</bool>
-						<int key="IBUISeparatorStyle">1</int>
+						<int key="IBUIStyle">1</int>
+						<int key="IBUISeparatorStyle">2</int>
 						<int key="IBUISectionIndexMinimumDisplayRowCount">1</int>
 						<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
 						<float key="IBUIRowHeight">44</float>
-						<float key="IBUISectionHeaderHeight">22</float>
-						<float key="IBUISectionFooterHeight">22</float>
+						<float key="IBUISectionHeaderHeight">50</float>
+						<float key="IBUISectionFooterHeight">10</float>
 					</object>
 					<object class="IBUINavigationBar" id="1035678191">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -81,12 +108,13 @@
 							</object>
 						</array>
 					</object>
-					<object class="IBUIPickerView" id="496672813">
+					<object class="IBUIPickerView" id="925823265">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{0, 244}, {320, 216}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIShowsSelectionIndicator">YES</bool>
 					</object>
@@ -159,7 +187,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dataSource</string>
-						<reference key="source" ref="496672813"/>
+						<reference key="source" ref="925823265"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">21</int>
@@ -167,7 +195,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
-						<reference key="source" ref="496672813"/>
+						<reference key="source" ref="925823265"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">22</int>
@@ -176,7 +204,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">picker</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="496672813"/>
+						<reference key="destination" ref="925823265"/>
 					</object>
 					<int key="connectionID">23</int>
 				</object>
@@ -195,7 +223,7 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="1035678191"/>
 							<reference ref="937818871"/>
-							<reference ref="496672813"/>
+							<reference ref="925823265"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -244,7 +272,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">20</int>
-						<reference key="object" ref="496672813"/>
+						<reference key="object" ref="925823265"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>
@@ -277,7 +305,7 @@
 						<string key="save">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="picker">id</string>
+						<string key="picker">UIPickerView</string>
 						<string key="searchBar">UISearchBar</string>
 						<string key="table">UITableView</string>
 					</dictionary>
