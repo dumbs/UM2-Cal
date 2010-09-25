@@ -8,18 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class GroupeUE;
 @class UniteEnseignement;
 
-@interface ParcoursViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface ParcoursViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     NSArray						*dataUE;
-	NSArray						*dataGroup;
-	IBOutlet UIPickerView		*picker;
 	IBOutlet UITableView		*table;
 	IBOutlet UISearchBar		*searchBar;
 	UITableViewCell				*currentCell;
-	GroupeUE					*currentGroup;
 	UniteEnseignement			*currentUE;
 	
 	NSURLConnection             *UEsGroupFeedConnection;
@@ -27,11 +23,8 @@
 }
 
 @property (nonatomic, retain) NSArray                   *dataUE;
-@property (nonatomic, retain) NSArray                   *dataGroup;
-@property (nonatomic, retain) GroupeUE                  *currentGroup;
 @property (nonatomic, retain) UniteEnseignement			*currentUE;
 @property (nonatomic, retain) UITableViewCell			*currentCell;
-@property (nonatomic, retain) IBOutlet UIPickerView		*picker;
 @property (nonatomic, retain) IBOutlet UITableView		*table;
 @property (nonatomic, retain) IBOutlet UISearchBar		*searchBar;
 

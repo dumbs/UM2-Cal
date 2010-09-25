@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF120DA612462CBF00217FCF /* ParcoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF120DA412462CBF00217FCF /* ParcoursViewController.m */; };
-		BF120DA712462CBF00217FCF /* ParcoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF120DA512462CBF00217FCF /* ParcoursViewController.xib */; };
 		BF3F91DC124680560029577C /* ProgressionAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3F91DB124680560029577C /* ProgressionAlert.m */; };
 		BF41F0AC123EA7C900D8A3DE /* XMLParserGroupeUE.m in Sources */ = {isa = PBXBuildFile; fileRef = BF41F0AB123EA7C900D8A3DE /* XMLParserGroupeUE.m */; };
 		BF4378FA12465B5D00708EC9 /* UECellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4378F912465B5C00708EC9 /* UECellView.m */; };
@@ -41,9 +39,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BF120DA312462CBF00217FCF /* ParcoursViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParcoursViewController.h; path = Controllers/ParcoursViewController.h; sourceTree = "<group>"; };
-		BF120DA412462CBF00217FCF /* ParcoursViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParcoursViewController.m; path = Controllers/ParcoursViewController.m; sourceTree = "<group>"; };
-		BF120DA512462CBF00217FCF /* ParcoursViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ParcoursViewController.xib; path = Classes/Controllers/ParcoursViewController.xib; sourceTree = "<group>"; };
 		BF3F91DA124680560029577C /* ProgressionAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressionAlert.h; sourceTree = "<group>"; };
 		BF3F91DB124680560029577C /* ProgressionAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressionAlert.m; sourceTree = "<group>"; };
 		BF41F0AA123EA7C900D8A3DE /* XMLParserGroupeUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XMLParserGroupeUE.h; sourceTree = "<group>"; };
@@ -116,8 +111,6 @@
 			children = (
 				BF8A2C0D1246579B00F588D9 /* DetailViewController.h */,
 				BF8A2C0E1246579C00F588D9 /* DetailViewController.m */,
-				BF120DA312462CBF00217FCF /* ParcoursViewController.h */,
-				BF120DA412462CBF00217FCF /* ParcoursViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -172,7 +165,6 @@
 				BF66D8B7123D0D3900CAA11E /* UM2_Cal-Info.plist */,
 				BF66D8B9123D0D3900CAA11E /* InfoPlist.strings */,
 				BF66D8C1123D0D3900CAA11E /* MainWindow.xib */,
-				BF120DA512462CBF00217FCF /* ParcoursViewController.xib */,
 				BF8A2C151246593C00F588D9 /* CellDetail.xib */,
 				BF66D8C7123D0D3A00CAA11E /* RootViewController.xib */,
 				BFF254A71246866E00EBF77B /* Cell.xib */,
@@ -297,7 +289,6 @@
 				BF66D8C3123D0D3900CAA11E /* MainWindow.xib in Resources */,
 				BF66D8C9123D0D3A00CAA11E /* RootViewController.xib in Resources */,
 				BF66D8DE123D167900CAA11E /* icon.png in Resources */,
-				BF120DA712462CBF00217FCF /* ParcoursViewController.xib in Resources */,
 				BF8A2C161246593C00F588D9 /* CellDetail.xib in Resources */,
 				BF58DB3712466E0000C36274 /* README in Resources */,
 				BFF254A91246866E00EBF77B /* Cell.xib in Resources */,
@@ -326,7 +317,6 @@
 				BFAED98F123D7C9D002EF349 /* SBJsonWriter.m in Sources */,
 				BFAED992123D80E4002EF349 /* XMLParserUE.m in Sources */,
 				BF41F0AC123EA7C900D8A3DE /* XMLParserGroupeUE.m in Sources */,
-				BF120DA612462CBF00217FCF /* ParcoursViewController.m in Sources */,
 				BF8A2C101246579C00F588D9 /* DetailViewController.m in Sources */,
 				BF8A2C14124658F600F588D9 /* DetailView.m in Sources */,
 				BF4378FA12465B5D00708EC9 /* UECellView.m in Sources */,
