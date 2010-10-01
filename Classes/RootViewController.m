@@ -9,7 +9,7 @@
 #import "RootViewController.h"
 #import "UniteEnseignements.h"
 #import "UniteEnseignement.h"
-#import "ParcoursViewController.h"
+#import "TeachingViewController.h"
 #import "UECellView.h"
 #import "Constant.h"
 #import "Cours.h"
@@ -56,7 +56,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadUEs:) name:EndSettingsNotification object:nil];
     
 	if (![[NSUserDefaults standardUserDefaults] boolForKey:kUM2_INIT]) {
-		ParcoursViewController *detailViewController = [[ParcoursViewController alloc] initWithNibName:@"ParcoursViewController" bundle:nil];
+		TeachingViewController *detailViewController = [[TeachingViewController alloc] initWithNibName:@"TeachingViewController" bundle:nil];
 		[self presentModalViewController:detailViewController animated:YES];
 		[detailViewController release];
 	} else {	
@@ -276,7 +276,7 @@
 
 - (void)goToSetting
 {
-	ParcoursViewController *detailViewController = [[ParcoursViewController alloc] initWithNibName:@"ParcoursViewController" bundle:nil];
+	TeachingViewController *detailViewController = [[TeachingViewController alloc] initWithNibName:@"TeachingViewController" bundle:nil];
 	[self presentModalViewController:detailViewController animated:YES];
 	[detailViewController release];
 }

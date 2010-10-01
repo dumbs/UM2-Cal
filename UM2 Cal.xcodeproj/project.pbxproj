@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF219D08124DE27600D628A2 /* TeachingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF219D06124DE27600D628A2 /* TeachingViewController.m */; };
+		BF219D09124DE27600D628A2 /* TeachingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF219D07124DE27600D628A2 /* TeachingViewController.xib */; };
 		BF3F91DC124680560029577C /* ProgressionAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3F91DB124680560029577C /* ProgressionAlert.m */; };
 		BF41F0AC123EA7C900D8A3DE /* XMLParserGroupeUE.m in Sources */ = {isa = PBXBuildFile; fileRef = BF41F0AB123EA7C900D8A3DE /* XMLParserGroupeUE.m */; };
 		BF4378FA12465B5D00708EC9 /* UECellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4378F912465B5C00708EC9 /* UECellView.m */; };
@@ -39,6 +41,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF219D05124DE27600D628A2 /* TeachingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeachingViewController.h; path = Controllers/TeachingViewController.h; sourceTree = "<group>"; };
+		BF219D06124DE27600D628A2 /* TeachingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeachingViewController.m; path = Controllers/TeachingViewController.m; sourceTree = "<group>"; };
+		BF219D07124DE27600D628A2 /* TeachingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeachingViewController.xib; path = Classes/Controllers/TeachingViewController.xib; sourceTree = "<group>"; };
 		BF3F91DA124680560029577C /* ProgressionAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressionAlert.h; sourceTree = "<group>"; };
 		BF3F91DB124680560029577C /* ProgressionAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressionAlert.m; sourceTree = "<group>"; };
 		BF41F0AA123EA7C900D8A3DE /* XMLParserGroupeUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XMLParserGroupeUE.h; sourceTree = "<group>"; };
@@ -109,6 +114,8 @@
 		BF120DA212462C9700217FCF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BF219D05124DE27600D628A2 /* TeachingViewController.h */,
+				BF219D06124DE27600D628A2 /* TeachingViewController.m */,
 				BF8A2C0D1246579B00F588D9 /* DetailViewController.h */,
 				BF8A2C0E1246579C00F588D9 /* DetailViewController.m */,
 			);
@@ -168,6 +175,7 @@
 				BF8A2C151246593C00F588D9 /* CellDetail.xib */,
 				BF66D8C7123D0D3A00CAA11E /* RootViewController.xib */,
 				BFF254A71246866E00EBF77B /* Cell.xib */,
+				BF219D07124DE27600D628A2 /* TeachingViewController.xib */,
 				BFF254A81246866E00EBF77B /* DetailView.xib */,
 			);
 			name = Resources;
@@ -293,6 +301,7 @@
 				BF58DB3712466E0000C36274 /* README in Resources */,
 				BFF254A91246866E00EBF77B /* Cell.xib in Resources */,
 				BFF254AA1246866E00EBF77B /* DetailView.xib in Resources */,
+				BF219D09124DE27600D628A2 /* TeachingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +330,7 @@
 				BF8A2C14124658F600F588D9 /* DetailView.m in Sources */,
 				BF4378FA12465B5D00708EC9 /* UECellView.m in Sources */,
 				BF3F91DC124680560029577C /* ProgressionAlert.m in Sources */,
+				BF219D08124DE27600D628A2 /* TeachingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

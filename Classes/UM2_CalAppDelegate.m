@@ -52,7 +52,7 @@ NSString    *   EndSettingsNotification = @"ENDSETTINGS";
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Probleme de connexion"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Problème de connexion"
 													message:[error localizedDescription] 
 												   delegate:nil cancelButtonTitle:@"OK" 
 										  otherButtonTitles:nil];
