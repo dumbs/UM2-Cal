@@ -1,85 +1,31 @@
 //
-//  TeachingViewController.m
+//  GroupViewController.m
 //  UM2 Cal
 //
-//  Created by Bertrand BRUN on 25/09/10.
+//  Created by Bertrand BRUN on 01/10/10.
 //  Copyright (c) 2010 Universite Montpellier 2. All rights reserved.
 //
 
-#import "TeachingViewController.h"
-#import "UniteEnseignements.h"
-#import "UniteEnseignement.h"
-#import "GroupeUE.h"
-#import "Constant.h"
+#import "GroupViewController.h"
 
-@interface TeachingViewController()
 
-- (void)reloadUE:(NSNotification *)note;
+@implementation GroupViewController
 
-@end
-
-@implementation TeachingViewController
-
-@synthesize dataUE, searchBar, tableView;
 
 #pragma mark -
 #pragma mark View lifecycle
 
-// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil 
-{
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        self.dataUE = [[UniteEnseignements allUE] UE];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(reloadUE:)
-                                                     name:AllUEDownloadNotification 
-                                                   object:nil];
-    }
-    return self;
-}
-
-
-- (void)viewDidLoad 
-{
+/*
+- (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSString *ident = [[dataUE objectAtIndex:0] id];
-    NSInteger row = 0;
-    
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    if ([prefs boolForKey:kUM2_INIT]) {
-        NSString *UE_ID = [prefs stringForKey:kUE_ID];
-        for (UniteEnseignement *UE in self.dataUE) {
-            ident = UE.id;
-            if ([ident isEqualToString:UE_ID]) {
-                [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-            }
-            row++;
-        }
-    }
+    // Uncomment the following line to preserve selection between presentations.
+    self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
-- (IBAction)save:(id)sender 
-{
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    
-	[prefs setBool:YES forKey:kUM2_INIT];
-	if (currentGroup.id)
-		[prefs setObject:currentGroup.id forKey:kGROUP_ID];
-	else
-		[prefs setObject:@"" forKey:kGROUP_ID];
-	[prefs setObject:currentUE.id forKey:kUE_ID];
-	
-	[[NSNotificationCenter defaultCenter] postNotificationName:EndSettingsNotification object:nil];
-	
-	[self dismissModalViewControllerAnimated:YES];
-}
-
-- (IBAction)cancel:(id)sender 
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
-
+*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -115,13 +61,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return <#number of sections#>;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[[UniteEnseignements allUE] UE] count];
+    return <#number of rows in section#>;
 }
 
 
@@ -130,15 +76,12 @@
     
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    UniteEnseignement *UE = [dataUE objectAtIndex:[indexPath row]];
-	cell.textLabel.text = UE.nom;
-	cell.detailTextLabel.text = @"Groupe : Tous";
+    // Configure the cell...
     
     return cell;
 }
@@ -187,13 +130,7 @@
 #pragma mark -
 #pragma mark Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-    currentUE = [dataUE objectAtIndex:indexPath.row];
-}
-
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
 	/*
 	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -202,17 +139,6 @@
 	 [self.navigationController pushViewController:detailViewController animated:YES];
 	 [detailViewController release];
 	 */
-}
-
-#pragma mark -
-#pragma mark Private Method
-
-- (void)reloadUE:(NSNotification *)note
-{
-    self.dataUE = [note object];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-    [self.tableView reloadData];
 }
 
 
@@ -234,8 +160,6 @@
 
 - (void)dealloc {
     [super dealloc];
-	self.dataUE = nil;
-    [[NSNotificationCenter defaultCenter] removeObserver:self];    
 }
 
 
