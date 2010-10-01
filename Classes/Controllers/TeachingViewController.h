@@ -18,9 +18,13 @@
 	IBOutlet UISearchBar		*searchBar;
 	GroupeUE					*currentGroup;
 	UniteEnseignement			*currentUE;
+    
+@private
+    UITableViewCell             *currentCell;
 }
 
 @property (nonatomic, retain) NSArray                   *dataUE;
+@property (nonatomic, retain) GroupeUE                  *currentGroup;
 @property (nonatomic, retain) IBOutlet UITableView		*tableView;
 @property (nonatomic, retain) IBOutlet UISearchBar		*searchBar;
 

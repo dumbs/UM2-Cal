@@ -16,12 +16,13 @@
 @interface TeachingViewController()
 
 - (void)reloadUE:(NSNotification *)note;
+- (void)reloadGroup:(NSNotification *)note;
 
 @end
 
 @implementation TeachingViewController
 
-@synthesize dataUE, searchBar, tableView;
+@synthesize dataUE, searchBar, tableView, currentGroup;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -35,10 +36,13 @@
                                                  selector:@selector(reloadUE:)
                                                      name:AllUEDownloadNotification 
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(reloadGroup:)
+                                                     name:GroupSelectedNotification 
+                                                   object:nil];
     }
     return self;
 }
-
 
 - (void)viewDidLoad 
 {
@@ -53,11 +57,16 @@
         for (UniteEnseignement *UE in self.dataUE) {
             ident = UE.id;
             if ([ident isEqualToString:UE_ID]) {
-                [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+                [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]
+                                            animated:YES 
+                                      scrollPosition:UITableViewScrollPositionMiddle];
+                break;
             }
             row++;
         }
     }
+    currentCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+	currentUE = [dataUE objectAtIndex:row];
 }
 
 - (IBAction)save:(id)sender 
@@ -195,13 +204,17 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
+    UniteEnseignement *UE = [self.dataUE objectAtIndex:[indexPath row]];
+    currentUE = [dataUE objectAtIndex:indexPath.row];
+    currentCell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
     // Navigation logic may go here. Create and push another view controller.
-	 GroupViewController *detailViewController = [[GroupViewController alloc] initWithNibName:@"GroupView" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-
+    GroupViewController *detailViewController = [[GroupViewController alloc] initWithNibName:@"GroupView" bundle:nil];
+    detailViewController.UE = UE;
+    // ...
+    // Pass the selected object to the new view controller.
+    [self presentModalViewController:detailViewController animated:YES];
+    [detailViewController release];
 }
 
 #pragma mark -
@@ -213,6 +226,14 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
     [self.tableView reloadData];
+}
+
+
+- (void)reloadGroup:(NSNotification *)note
+{
+    self.currentGroup = [note object];
+    currentCell.detailTextLabel.text = [NSString stringWithFormat:@"Groupe : %@", currentGroup.lettre];
+    currentCell.selected = YES;
 }
 
 

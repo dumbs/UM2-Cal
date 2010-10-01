@@ -21,4 +21,9 @@
     [super dealloc];
 }
 
+- (NSString *)description
+{
+    return ([NSString stringWithFormat:@"id => %@, nom => %@, composante => %@, code => %@", self.id, self.nom, self.composante, self.code]);
+}
+
 @end

@@ -15,6 +15,7 @@
 
 NSString    *   AllUEDownloadNotification = @"ALLUEDONWLOAD";
 NSString    *   EndSettingsNotification = @"ENDSETTINGS";
+NSString    *   GroupSelectedNotification = @"GROUPSELECTED";
 
 @implementation UM2_CalAppDelegate
 
@@ -27,6 +28,8 @@ NSString    *   EndSettingsNotification = @"ENDSETTINGS";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
+    
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kUM2_INIT];
     // Override point for customization after application launch.
     NSURLRequest *UEURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:kURL_PARCOURS]];
     self.UEFeedConnection = [[[NSURLConnection alloc] initWithRequest:UEURLRequest
@@ -37,6 +40,9 @@ NSString    *   EndSettingsNotification = @"ENDSETTINGS";
     [window makeKeyAndVisible];
     return YES;
 }
+
+#pragma mark -
+#pragma mark Connection delegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {

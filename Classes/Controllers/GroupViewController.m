@@ -7,25 +7,28 @@
 //
 
 #import "GroupViewController.h"
+#import "UniteEnseignement.h"
+#import "GroupeUE.h"
+#import "XMLParserGroupeUE.h"
+#import "Constant.h"
 
 
 @implementation GroupViewController
 
+@synthesize dataGroup, currentGroup, UEsGroupFeedConnection, UEsGroupString, UE, tableView;
 
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
-- (void)viewDidLoad {
+- (void)viewDidLoad 
+{
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    currentGroup = nil;
+    int i_time = time(NULL);
+    NSURLRequest *UEsURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:kURL_GROUP, UE.id, i_time]]];
+    self.UEsGroupFeedConnection = [[[NSURLConnection alloc] initWithRequest:UEsURLRequest delegate:self] autorelease];
 }
-*/
+
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -55,19 +58,23 @@
 }
 */
 
+- (IBAction)cancel:(id)sender 
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 #pragma mark -
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return <#number of sections#>;
+    return 1;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return <#number of rows in section#>;
+    return [self.dataGroup count];
 }
 
 
@@ -76,12 +83,13 @@
     
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
+    GroupeUE *groupe = [self.dataGroup objectAtIndex:[indexPath row]];
+    cell.textLabel.text = [NSString stringWithFormat:@"Groupe : %@", groupe.lettre];;
     
     return cell;
 }
@@ -126,19 +134,52 @@
 }
 */
 
+#pragma mark -
+#pragma mark Connection delegate
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    self.UEsGroupString = [NSMutableString string];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+	[UEsGroupString appendString:str];
+	[str release];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Problème de connexion"
+													message:[error localizedDescription] 
+												   delegate:nil cancelButtonTitle:@"OK" 
+										  otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    XMLParserGroupeUE *xmlParser = [[XMLParserGroupeUE alloc] init];
+	[xmlParser parseData:[UEsGroupString dataUsingEncoding:NSUTF8StringEncoding]];
+	self.dataGroup = xmlParser.groupeUE;
+	[xmlParser release];
+    
+    [self.tableView reloadData];
+
+	NSLog(@"Telechargment des groupes fini");
+}
+
 
 #pragma mark -
 #pragma mark Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:GroupSelectedNotification 
+                                                        object:[self.dataGroup objectAtIndex:[indexPath row]]];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 
@@ -155,11 +196,17 @@
 - (void)viewDidUnload {
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
+    self.tableView = nil;
 }
 
 
 - (void)dealloc {
-    [super dealloc];
+    [super dealloc];/*
+    self.dataGroup = nil;
+	self.currentGroup = nil;
+    self.tableView = nil;
+    
+	self.UEsGroupString = nil;*/
 }
 
 

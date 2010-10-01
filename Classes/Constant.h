@@ -34,6 +34,13 @@ extern NSString *   AllUEDownloadNotification;
 extern NSString *   EndSettingsNotification;
 
 /*!
+ @const         GroupSelectedNotification
+ @abstract      
+ @discussion    
+ */
+extern NSString *   GroupSelectedNotification;
+
+/*!
     @defined    kURL_GROUP
     @abstract   URL de récupération des groupes.
 	@discussion Lorsque l'on veut récupérer les groupes pour une UE choisie, il faut envoyer au serveur de la

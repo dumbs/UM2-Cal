@@ -56,7 +56,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadUEs:) name:EndSettingsNotification object:nil];
     
 	if (![[NSUserDefaults standardUserDefaults] boolForKey:kUM2_INIT]) {
-		TeachingViewController *detailViewController = [[TeachingViewController alloc] initWithNibName:@"TeachingViewController" bundle:nil];
+		TeachingViewController *detailViewController = [[TeachingViewController alloc] initWithNibName:@"TeachingView" bundle:nil];
 		[self presentModalViewController:detailViewController animated:YES];
 		[detailViewController release];
 	} else {	

@@ -8,10 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
+@class GroupeUE;
+@class UniteEnseignement;
 
-@interface GroupViewController : UITableViewController 
+@interface GroupViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
+	NSArray						*dataGroup;
+	GroupeUE					*currentGroup;
+    UniteEnseignement           *UE;
+    IBOutlet UITableView        *tableView;
     
+    NSURLConnection             *UEsGroupFeedConnection;
+	NSMutableString             *UEsGroupString;
 }
+
+@property (nonatomic, retain) NSArray                   *dataGroup;
+@property (nonatomic, retain) GroupeUE                  *currentGroup;
+@property (nonatomic, assign) UniteEnseignement         *UE;
+@property (nonatomic, retain) IBOutlet UITableView      *tableView;
+
+@property (nonatomic, retain) NSURLConnection           *UEsGroupFeedConnection;
+@property (nonatomic, retain) NSMutableString           *UEsGroupString;
+
+- (IBAction)cancel:(id)sender;
 
 @end
