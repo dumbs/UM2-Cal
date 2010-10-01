@@ -276,7 +276,7 @@
 
 - (void)goToSetting
 {
-	TeachingViewController *detailViewController = [[TeachingViewController alloc] initWithNibName:@"TeachingViewController" bundle:nil];
+	TeachingViewController *detailViewController = [[TeachingViewController alloc] initWithNibName:@"TeachingView" bundle:nil];
 	[self presentModalViewController:detailViewController animated:YES];
 	[detailViewController release];
 }

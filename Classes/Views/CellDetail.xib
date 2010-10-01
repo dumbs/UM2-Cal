@@ -91,7 +91,6 @@
 								<string key="NSFrame">{{7, 101}, {214, 11}}</string>
 								<reference key="NSSuperview" ref="887373928"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -320,11 +319,11 @@
 					<string key="className">DetailView</string>
 					<string key="superclassName">UITableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="date">UILabel</string>
-						<string key="groupe">UILabel</string>
-						<string key="horaire">UILabel</string>
-						<string key="salle">UILabel</string>
-						<string key="titre">UILabel</string>
+						<string key="date">id</string>
+						<string key="groupe">id</string>
+						<string key="horaire">id</string>
+						<string key="salle">id</string>
+						<string key="titre">id</string>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>

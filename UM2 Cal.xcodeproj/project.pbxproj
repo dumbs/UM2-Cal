@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF219D08124DE27600D628A2 /* TeachingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF219D06124DE27600D628A2 /* TeachingViewController.m */; };
-		BF219D09124DE27600D628A2 /* TeachingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF219D07124DE27600D628A2 /* TeachingViewController.xib */; };
+		BF219D09124DE27600D628A2 /* TeachingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF219D07124DE27600D628A2 /* TeachingView.xib */; };
 		BF3F91DC124680560029577C /* ProgressionAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3F91DB124680560029577C /* ProgressionAlert.m */; };
 		BF41F0AC123EA7C900D8A3DE /* XMLParserGroupeUE.m in Sources */ = {isa = PBXBuildFile; fileRef = BF41F0AB123EA7C900D8A3DE /* XMLParserGroupeUE.m */; };
 		BF4378FA12465B5D00708EC9 /* UECellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4378F912465B5C00708EC9 /* UECellView.m */; };
@@ -25,7 +25,7 @@
 		BF66D8DC123D10ED00CAA11E /* Cours.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66D8DB123D10ED00CAA11E /* Cours.m */; };
 		BF66D8DE123D167900CAA11E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF66D8DD123D167800CAA11E /* icon.png */; };
 		BF795C2D1256763300AF9D13 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF795C2B1256763300AF9D13 /* GroupViewController.m */; };
-		BF795C2E1256763300AF9D13 /* GroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF795C2C1256763300AF9D13 /* GroupViewController.xib */; };
+		BF795C2E1256763300AF9D13 /* GroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF795C2C1256763300AF9D13 /* GroupView.xib */; };
 		BF8A2C101246579C00F588D9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A2C0E1246579C00F588D9 /* DetailViewController.m */; };
 		BF8A2C14124658F600F588D9 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A2C13124658F600F588D9 /* DetailView.m */; };
 		BF8A2C161246593C00F588D9 /* CellDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8A2C151246593C00F588D9 /* CellDetail.xib */; };
@@ -45,7 +45,7 @@
 /* Begin PBXFileReference section */
 		BF219D05124DE27600D628A2 /* TeachingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeachingViewController.h; path = Controllers/TeachingViewController.h; sourceTree = "<group>"; };
 		BF219D06124DE27600D628A2 /* TeachingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeachingViewController.m; path = Controllers/TeachingViewController.m; sourceTree = "<group>"; };
-		BF219D07124DE27600D628A2 /* TeachingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeachingViewController.xib; path = Classes/Controllers/TeachingViewController.xib; sourceTree = "<group>"; };
+		BF219D07124DE27600D628A2 /* TeachingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeachingView.xib; path = Classes/Controllers/TeachingView.xib; sourceTree = "<group>"; };
 		BF3F91DA124680560029577C /* ProgressionAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressionAlert.h; sourceTree = "<group>"; };
 		BF3F91DB124680560029577C /* ProgressionAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressionAlert.m; sourceTree = "<group>"; };
 		BF41F0AA123EA7C900D8A3DE /* XMLParserGroupeUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XMLParserGroupeUE.h; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		BF66D8E1123D2DB800CAA11E /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = Classes/Constant.h; sourceTree = "<group>"; };
 		BF795C2A1256763300AF9D13 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupViewController.h; path = Controllers/GroupViewController.h; sourceTree = "<group>"; };
 		BF795C2B1256763300AF9D13 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupViewController.m; path = Controllers/GroupViewController.m; sourceTree = "<group>"; };
-		BF795C2C1256763300AF9D13 /* GroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupViewController.xib; path = Classes/Controllers/GroupViewController.xib; sourceTree = "<group>"; };
+		BF795C2C1256763300AF9D13 /* GroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupView.xib; path = Classes/Controllers/GroupView.xib; sourceTree = "<group>"; };
 		BF8A2C0D1246579B00F588D9 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = Controllers/DetailViewController.h; sourceTree = "<group>"; };
 		BF8A2C0E1246579C00F588D9 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Controllers/DetailViewController.m; sourceTree = "<group>"; };
 		BF8A2C12124658F600F588D9 /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailView.h; path = Views/DetailView.h; sourceTree = "<group>"; };
@@ -182,8 +182,8 @@
 				BF8A2C151246593C00F588D9 /* CellDetail.xib */,
 				BF66D8C7123D0D3A00CAA11E /* RootViewController.xib */,
 				BFF254A71246866E00EBF77B /* Cell.xib */,
-				BF219D07124DE27600D628A2 /* TeachingViewController.xib */,
-				BF795C2C1256763300AF9D13 /* GroupViewController.xib */,
+				BF219D07124DE27600D628A2 /* TeachingView.xib */,
+				BF795C2C1256763300AF9D13 /* GroupView.xib */,
 				BFF254A81246866E00EBF77B /* DetailView.xib */,
 			);
 			name = Resources;
@@ -309,8 +309,8 @@
 				BF58DB3712466E0000C36274 /* README in Resources */,
 				BFF254A91246866E00EBF77B /* Cell.xib in Resources */,
 				BFF254AA1246866E00EBF77B /* DetailView.xib in Resources */,
-				BF219D09124DE27600D628A2 /* TeachingViewController.xib in Resources */,
-				BF795C2E1256763300AF9D13 /* GroupViewController.xib in Resources */,
+				BF219D09124DE27600D628A2 /* TeachingView.xib in Resources */,
+				BF795C2E1256763300AF9D13 /* GroupView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
