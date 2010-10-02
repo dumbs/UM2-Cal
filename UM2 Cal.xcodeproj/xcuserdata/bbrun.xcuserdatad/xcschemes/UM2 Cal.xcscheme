@@ -7,9 +7,11 @@
       failureAction = "0">
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
+      selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
       loadSymbolsForSpecifiedModules = "NO"
+      selectedAnalysisToolIdentifier = "/Xcode4/Applications/Instruments.app/Contents/Resources/templates/Leaks.tracetemplate"
+      analysisToolsServiceExtensionIdentifier = "Xcode.InstrumentsService"
       displayScaleIsEnabled = "NO"
       displayScale = "1.00">
       <BuildableProductRunnable>

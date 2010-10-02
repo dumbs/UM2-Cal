@@ -99,13 +99,13 @@
 	self.coursString = nil;
     
     NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:0];
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	for (NSDictionary *UE in emploiDuTemps) {
-		Cours *cours = [[[Cours alloc] initWithDictionary:UE] autorelease];
+		Cours *cours = [[Cours alloc] initWithDictionary:UE];
 		[array addObject:cours];
+        [cours release];
 	}
-	[pool release];
     self.coursArray = [NSArray arrayWithArray:array];
+    [array release];
     
 	[self.tableView reloadData];
     
@@ -341,7 +341,6 @@
 	range.length = 2;
 	NSInteger month = [[dateS substringWithRange:range] intValue];
 	range.location = 8;
-	range.length = 2;
 	NSInteger day = [[dateS substringWithRange:range] intValue];
 	
 	NSDateComponents *comps = [[NSDateComponents alloc] init];

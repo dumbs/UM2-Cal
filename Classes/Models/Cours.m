@@ -85,7 +85,6 @@
 	range.length = 2;
 	NSInteger month = [[dateS substringWithRange:range] intValue];
 	range.location = 8;
-	range.length = 2;
 	NSInteger day = [[dateS substringWithRange:range] intValue];
 	
 	NSDateComponents *comps = [[NSDateComponents alloc] init];
@@ -124,7 +123,6 @@
 	range.length = 2;
 	NSInteger month = [[dateS substringWithRange:range] intValue];
 	range.location = 8;
-	range.length = 2;
 	NSInteger day = [[dateS substringWithRange:range] intValue];
 	
 	NSRange rangeOfT = [startDate rangeOfString:@"T"];
@@ -164,7 +162,6 @@
 	range.length = 2;
 	NSInteger month = [[dateS substringWithRange:range] intValue];
 	range.location = 8;
-	range.length = 2;
 	NSInteger day = [[dateS substringWithRange:range] intValue];
 	
 	NSRange rangeOfT = [endDate rangeOfString:@"T"];
