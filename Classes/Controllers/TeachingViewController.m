@@ -19,12 +19,13 @@
 
 - (void)reloadUE:(NSNotification *)note;
 - (void)reloadGroup:(NSNotification *)note;
+- (void)searchTableView;
 
 @end
 
 @implementation TeachingViewController
 
-@synthesize dataUE, searchBar, tableView, currentGroup, UEString, UEFeedConnection, progressAlert;
+@synthesize dataUE, searchBarUI, tableView, currentGroup, UEString, UEFeedConnection, progressAlert, searching, letUserSelectRow, searchingDataUE;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -46,6 +47,10 @@
         NSURLRequest *UEURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:kURL_PARCOURS]];
         self.UEFeedConnection = [[[NSURLConnection alloc] initWithRequest:UEURLRequest
                                                                  delegate:self] autorelease];
+        
+        self.searching = NO;
+        self.letUserSelectRow = YES;
+        self.searchingDataUE = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -56,6 +61,7 @@
 
     NSString *ident = [[dataUE objectAtIndex:0] id];
     NSInteger row = 0;
+    BOOL finding = NO;
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     if ([prefs boolForKey:kUM2_INIT]) {
@@ -66,13 +72,14 @@
                 [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]
                                             animated:YES 
                                       scrollPosition:UITableViewScrollPositionMiddle];
+                finding = YES;
                 break;
             }
             row++;
         }
     }
     currentCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-	currentUE = [dataUE objectAtIndex:row];
+	currentUE = [dataUE objectAtIndex:(finding ? row : 0)];
 }
 
 - (IBAction)save:(id)sender 
@@ -138,7 +145,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[[UniteEnseignements allUE] UE] count];
+    if (self.searching)
+        return ([self.searchingDataUE count]);
+    return ([[[UniteEnseignements allUE] UE] count]);
 }
 
 
@@ -152,11 +161,14 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
-    
-    UniteEnseignement *UE = [dataUE objectAtIndex:[indexPath row]];
-	cell.textLabel.text = UE.nom;
-	cell.detailTextLabel.text = @"Groupe : Tous";
-    
+    if (!self.searching) {
+        UniteEnseignement *UE = [dataUE objectAtIndex:[indexPath row]];
+        cell.textLabel.text = UE.nom;
+        cell.detailTextLabel.text = @"Groupe : Tous";
+    } else {
+        cell.textLabel.text = [[searchingDataUE objectAtIndex:[indexPath row]] nom];
+        cell.detailTextLabel.text = @"Groupe : Tous";
+    }
     return cell;
 }
 
@@ -206,15 +218,33 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    currentUE = [dataUE objectAtIndex:indexPath.row];
+    if (!self.searching)
+        currentUE = [dataUE objectAtIndex:indexPath.row];
+    else
+        [searchingDataUE objectAtIndex:indexPath.row];
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.letUserSelectRow)
+        return indexPath;
+    else
+        return nil;
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    UniteEnseignement *UE = [self.dataUE objectAtIndex:[indexPath row]];
-    currentUE = [dataUE objectAtIndex:indexPath.row];
-    currentCell = [self.tableView cellForRowAtIndexPath:indexPath];
+    UniteEnseignement *UE;
     
+    if (!self.searching) { 
+        UE = [self.dataUE objectAtIndex:[indexPath row]];
+        currentUE = UE;
+        currentCell = [self.tableView cellForRowAtIndexPath:indexPath];
+    } else {
+        UE = [self.searchingDataUE objectAtIndex:[indexPath row]];
+        currentUE = UE;
+        currentCell = [self.tableView cellForRowAtIndexPath:indexPath];
+    }
     // Navigation logic may go here. Create and push another view controller.
     GroupViewController *detailViewController = [[GroupViewController alloc] initWithNibName:@"GroupView" bundle:nil];
     detailViewController.UE = UE;
@@ -267,6 +297,51 @@
 }
 
 #pragma mark -
+#pragma mark search bar delegate
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    searching = YES;
+    letUserSelectRow = NO;
+    self.tableView.scrollEnabled = NO;
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBar:(UISearchBar *)theSearchBar textDidChange:(NSString *)searchText {
+    
+    //Remove all objects first.
+    [self.searchingDataUE removeAllObjects];
+    
+    if([searchText length] > 0) {
+        
+        searching = YES;
+        letUserSelectRow = YES;
+        self.tableView.scrollEnabled = YES;
+        [self searchTableView];
+    }
+    else {
+        
+        searching = NO;
+        letUserSelectRow = NO;
+        self.tableView.scrollEnabled = NO;
+    }
+    
+    [self.tableView reloadData];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+   
+    letUserSelectRow = YES;
+    searching = NO;
+    self.tableView.scrollEnabled = YES;
+    
+    [self.tableView reloadData];
+}
+
+#pragma mark -
 #pragma mark Private Method
 
 - (void)reloadUE:(NSNotification *)note
@@ -285,6 +360,18 @@
     currentCell.selected = YES;
 }
 
+- (void) searchTableView
+{     
+    NSString *searchText = searchBarUI.text;
+    
+    for (UniteEnseignement *UE in dataUE)
+    {
+        NSRange titleResultsRange = [UE.nom rangeOfString:searchText options:NSCaseInsensitiveSearch];
+        
+        if (titleResultsRange.length > 0)
+            [searchingDataUE addObject:UE];
+    }
+}
 
 #pragma mark -
 #pragma mark Memory management
