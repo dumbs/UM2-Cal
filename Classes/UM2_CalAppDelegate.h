@@ -26,18 +26,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UM2_CalAppDelegate : NSObject <UIApplicationDelegate> 
+@interface UM2_CalAppDelegate : NSObject 
 {
     UIWindow                *window;
     UINavigationController  *navigationController;
-    NSURLConnection         *EUFeedConnection;
-    NSMutableString         *UEString;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow                 *window;
 @property (nonatomic, retain) IBOutlet UINavigationController   *navigationController;
-
-@property (nonatomic, retain) NSURLConnection                   *UEFeedConnection;
-@property (nonatomic, retain) NSMutableString                   *UEString;
 
 @end

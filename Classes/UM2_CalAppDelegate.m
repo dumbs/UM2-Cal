@@ -21,60 +21,17 @@ NSString    *   GroupSelectedNotification = @"GROUPSELECTED";
 
 @synthesize window;
 @synthesize navigationController;
-@synthesize UEFeedConnection, UEString;
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
-    
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kUM2_INIT];
-    // Override point for customization after application launch.
-    NSURLRequest *UEURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:kURL_PARCOURS]];
-    self.UEFeedConnection = [[[NSURLConnection alloc] initWithRequest:UEURLRequest
-                                                             delegate:self] autorelease];
-    
+{
+    // Override point for customization after application launch.    
     // Add the navigation controller's view to the window and display.
     [window addSubview:navigationController.view];
     [window makeKeyAndVisible];
     return YES;
-}
-
-#pragma mark -
-#pragma mark Connection delegate
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    self.UEString = [NSMutableString string];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    [UEString appendString:(str == nil ? @"" : str)];
-    [str release];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Problème de connexion"
-													message:[error localizedDescription] 
-												   delegate:nil cancelButtonTitle:@"OK" 
-										  otherButtonTitles:nil];
-	[alert show];
-	[alert release];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    XMLParserUE *xmlParser = [[XMLParserUE alloc] init];
-    [xmlParser parseData:[UEString dataUsingEncoding:NSUTF8StringEncoding]];
-    NSArray *UE = xmlParser.uniteEnseignements;
-    [[UniteEnseignements allUE] setUE:UE];
-    [xmlParser release];
-    [[NSNotificationCenter defaultCenter] postNotificationName:AllUEDownloadNotification object:UE];
-    NSLog(@"Telechargement des parcours fini");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
