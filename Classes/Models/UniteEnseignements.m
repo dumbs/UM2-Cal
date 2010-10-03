@@ -7,11 +7,14 @@
 //
 
 #import "UniteEnseignements.h"
+#import "XMLParserUE.h"
+#import "Constant.h"
+#import "ProgressionAlert.h"
 
 
 @implementation UniteEnseignements
 
-@synthesize UE;
+@synthesize UEString, UEFeedConnection, progressAlert, UEs;
 
 #pragma mark -
 #pragma mark singleton
@@ -57,6 +60,56 @@ static UniteEnseignements *shareUE = nil;
 - (id)autorelease
 {
     return (self);
+}
+
+- (id)init {
+    if ((self = [super init])) {
+        NSURLRequest *UEURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:kURL_PARCOURS]];
+        self.UEFeedConnection = [[[NSURLConnection alloc] initWithRequest:UEURLRequest
+                                                                 delegate:self] autorelease];
+    }
+    return self;
+}
+
+#pragma mark -
+#pragma mark Connection delegate
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    progressAlert = [[ProgressionAlert alloc] init];
+    [progressAlert createProgressionAlertWithTitle:@"Téléchargement des Parcours" andMessage: @"Veuillez patienter..."];
+    
+    self.UEString = [NSMutableString string];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    [UEString appendString:(str == nil ? @"" : str)];
+    [str release];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Problème de connexion"
+													message:[error localizedDescription] 
+												   delegate:nil cancelButtonTitle:@"OK" 
+										  otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    XMLParserUE *xmlParser = [[XMLParserUE alloc] init];
+    [xmlParser parseData:[UEString dataUsingEncoding:NSUTF8StringEncoding]];
+    NSArray *UE = xmlParser.uniteEnseignements;
+    [[UniteEnseignements allUE] setUEs:UE];
+    [xmlParser release];
+    [[NSNotificationCenter defaultCenter] postNotificationName:AllUEDownloadNotification object:UE];
+    [progressAlert dismissProgressionAlert];
+    [progressAlert release];
+    NSLog(@"Telechargement des parcours fini");
 }
 
 @end

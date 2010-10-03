@@ -10,9 +10,8 @@
 
 @class GroupeUE;
 @class UniteEnseignement;
-@class ProgressionAlert;
 
-@interface TeachingViewController : UIViewController <UIApplicationDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate> 
+@interface TeachingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate> 
 {
     NSArray                     *dataUE;
     NSMutableArray              *searchingDataUE;
@@ -20,9 +19,6 @@
 	IBOutlet UISearchBar		*searchBarUI;
 	GroupeUE					*currentGroup;
 	UniteEnseignement			*currentUE;
-    NSURLConnection             *EUFeedConnection;
-    NSMutableString             *UEString;
-    ProgressionAlert            *progressAlert;
     
     BOOL                        searching;
     BOOL                        letUserSelectRow;
@@ -36,12 +32,8 @@
 @property (nonatomic, retain) GroupeUE                  *currentGroup;
 @property (nonatomic, retain) IBOutlet UITableView		*tableView;
 @property (nonatomic, retain) IBOutlet UISearchBar		*searchBarUI;
-@property (nonatomic, retain) ProgressionAlert          *progressAlert;
 @property (nonatomic)         BOOL                      searching;
 @property (nonatomic)         BOOL                      letUserSelectRow;
-
-@property (nonatomic, retain) NSURLConnection           *UEFeedConnection;
-@property (nonatomic, retain) NSMutableString           *UEString;
 
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;

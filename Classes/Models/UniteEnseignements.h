@@ -17,6 +17,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class ProgressionAlert;
+
 /*!
     @class      UniteEnseignements
     @abstract   La classe UniteEnseignement est un singleton.
@@ -24,12 +26,19 @@
     cette classe garde une fois téléchargées toutes les UE de la faculté des sciences
     de Montpellier.
  */
-@interface UniteEnseignements : NSObject
+@interface UniteEnseignements : NSObject <UIApplicationDelegate>
 {
-    NSArray *UE;
+    NSArray                     *UEs;
+    NSURLConnection             *EUFeedConnection;
+    NSMutableString             *UEString;
+    ProgressionAlert            *progressAlert;
 }
 
-@property (nonatomic, retain) NSArray   *UE;
+@property (nonatomic, retain, getter = UE) NSArray      *UEs;
+@property (nonatomic, retain) ProgressionAlert          *progressAlert;
+
+@property (nonatomic, retain) NSURLConnection           *UEFeedConnection;
+@property (nonatomic, retain) NSMutableString           *UEString;
 
 /*! 
     @method allUE
