@@ -32,13 +32,71 @@
 
 @implementation RootViewController
 
-@synthesize dataCours, coursString, coursArray, daySection, coursFeedConnection, emploiDuTemps, progressAlert;
+@synthesize dataCours;
+@synthesize coursString;
+@synthesize coursArray;
+@synthesize daySection;
+@synthesize coursFeedConnection;
+@synthesize emploiDuTemps;
+@synthesize progressAlert;
+@synthesize tableView;
+@synthesize bannerView;
+
+#pragma mark -
+#pragma mark Banner/table frame change methods
+
+- (void)moveBannerViewOffscreen
+{
+	//Make the table view take up the void left by the banner.
+	CGRect originalTableFrame = self.tableView.frame;
+	CGFloat newTableHeight = self.view.frame.size.height;
+	CGRect newTableFrame = originalTableFrame;
+	newTableFrame.size.height = newTableHeight;
+	
+	//Position the banner below the table view (offscreen).
+	CGRect newBannerFrame = self.bannerView.frame;
+	newBannerFrame.origin.y = newTableHeight;
+	
+	self.tableView.frame = newTableFrame;
+	self.bannerView.frame = newBannerFrame;
+}
+
+- (void)moveBannerViewOnscreen
+{
+	CGRect newBannerFrame = self.bannerView.frame;
+	newBannerFrame.origin.y = self.view.frame.size.height - newBannerFrame.size.height;
+	
+	CGRect originalTableFrame = self.tableView.frame;
+	CGFloat newTableHeight = self.view.frame.size.height - newBannerFrame.size.height;
+	CGRect newTableFrame = originalTableFrame;
+	newTableFrame.size.height = newTableHeight;
+	
+	[UIView beginAnimations:@"BannerViewIntro" context:NULL];
+	self.tableView.frame = newTableFrame;
+	self.bannerView.frame = newBannerFrame;
+	[UIView commitAnimations];
+}
+
+#pragma mark -
+#pragma mark ABDBannerViewDelegate methods
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+	[self moveBannerViewOffscreen];
+}
+
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+	[self moveBannerViewOnscreen];
+}
 
 #pragma mark -
 #pragma mark View lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	[self moveBannerViewOffscreen];
     
 	//Set the title to the user-visible name of the field
 	self.title = @"Calendrier";
@@ -170,7 +228,7 @@
 {   
     static NSString *CellIdentifier = @"Cell";
     
-    UECellView *cell = (UECellView *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UECellView *cell = (UECellView *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
 		UIViewController *cellFactoryViewController = [[UIViewController alloc] initWithNibName:@"Cell" bundle:nil];
 		cell = (UECellView *)cellFactoryViewController.view;
@@ -447,6 +505,9 @@
 
 - (void)dealloc {
     [super dealloc];
+	bannerView.delegate = nil;
+	[bannerView release];
+	[tableView release];
     [self.coursArray release];
 }
 

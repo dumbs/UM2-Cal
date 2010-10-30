@@ -7,27 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
 @class ProgressionAlert;
 
-@interface RootViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIApplicationDelegate>
+@interface RootViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIApplicationDelegate>
 {
-    NSURLConnection     *coursFeedConnection;
-    NSMutableString     *coursString;
-    NSArray             *emploiDuTemps;
-    NSArray             *dataCours;
-    NSArray             *coursArray;
-    ProgressionAlert    *progressAlert;
-    NSMutableArray      *daySection;
+    NSURLConnection			*coursFeedConnection;
+    NSMutableString			*coursString;
+    NSArray					*emploiDuTemps;
+    NSArray					*dataCours;
+    NSArray					*coursArray;
+    ProgressionAlert		*progressAlert;
+    NSMutableArray			*daySection;
     
 }
 
-@property (nonatomic, retain) NSArray           *emploiDuTemps;
-@property (nonatomic, retain) NSArray           *dataCours;
-@property (nonatomic, retain) NSArray           *coursArray;
-@property (nonatomic, retain) NSMutableArray    *daySection;
-@property (nonatomic, retain) NSURLConnection   *coursFeedConnection;
-@property (nonatomic, retain) NSMutableString   *coursString;
-@property (nonatomic, retain) ProgressionAlert  *progressAlert;
+@property (nonatomic, retain) NSArray				*emploiDuTemps;
+@property (nonatomic, retain) NSArray				*dataCours;
+@property (nonatomic, retain) NSArray				*coursArray;
+@property (nonatomic, retain) NSMutableArray		*daySection;
+@property (nonatomic, retain) NSURLConnection		*coursFeedConnection;
+@property (nonatomic, retain) NSMutableString		*coursString;
+@property (nonatomic, retain) ProgressionAlert		*progressAlert;
+@property (nonatomic, retain) IBOutlet UITableView	*tableView;
+@property (nonatomic, retain) IBOutlet ADBannerView	*bannerView;
 
 @end

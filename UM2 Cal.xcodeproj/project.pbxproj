@@ -39,6 +39,7 @@
 		BFAED98F123D7C9D002EF349 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAED98A123D7C9D002EF349 /* SBJsonWriter.m */; };
 		BFAED992123D80E4002EF349 /* XMLParserUE.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAED991123D80E4002EF349 /* XMLParserUE.m */; };
 		BFF254A91246866E00EBF77B /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF254A71246866E00EBF77B /* Cell.xib */; };
+		BFF6299A127C6EF600EEAD24 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF62999127C6EF600EEAD24 /* iAd.framework */; };
 		BFF9FE6C123D300E0003DDC9 /* GroupeUE.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF9FE6B123D300E0003DDC9 /* GroupeUE.m */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		BFAED990123D80E4002EF349 /* XMLParserUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XMLParserUE.h; sourceTree = "<group>"; };
 		BFAED991123D80E4002EF349 /* XMLParserUE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = XMLParserUE.m; sourceTree = "<group>"; };
 		BFF254A71246866E00EBF77B /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Cell.xib; path = Classes/Views/Cell.xib; sourceTree = "<group>"; };
+		BFF62999127C6EF600EEAD24 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		BFF9FE6A123D300E0003DDC9 /* GroupeUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupeUE.h; path = Models/GroupeUE.h; sourceTree = "<group>"; };
 		BFF9FE6B123D300E0003DDC9 /* GroupeUE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupeUE.m; path = Models/GroupeUE.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 				BF66D8B2123D0D3900CAA11E /* UIKit.framework in Frameworks */,
 				BF66D8B4123D0D3900CAA11E /* Foundation.framework in Frameworks */,
 				BF66D8B6123D0D3900CAA11E /* CoreGraphics.framework in Frameworks */,
+				BFF6299A127C6EF600EEAD24 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +198,7 @@
 				BF66D8B1123D0D3900CAA11E /* UIKit.framework */,
 				BF66D8B3123D0D3900CAA11E /* Foundation.framework */,
 				BF66D8B5123D0D3900CAA11E /* CoreGraphics.framework */,
+				BFF62999127C6EF600EEAD24 /* iAd.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
